@@ -1,1 +1,305 @@
-\chapter{Farbe}
+Was ist Farbe?
+\begin{itemize}[labelindent=1cm]
+  \item \textit{phsykalisch} Zusammensetzung des Lichts, das auf das Auge trifft.
+  \item \textit{physiologisch} Wahrnehmung dieses Lichts im Auge und Interpretation
+\end{itemize}
+
+
+\section{Physikalische Grundlagen}
+Licht besteht aus elektromagnetischer Strahlung verschiedener Wellenlänge.
+\begin{description}[labelindent=1cm]
+  \item[sichtbares Licht] Intervall von 380 nm (blau) bis 780 nm (rot)
+  \item[infrarot] oberhalb von 780nm
+  \item[ultraviolett] unterhalb von 380nm
+\end{description}
+Längeneinheit: 1nm = 10Å (Angström). Ein Atom hat etwa den Durchmesser von 1Å
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=0.7\linewidth]{fig/farbspectrum}
+\caption{Farbspectrum}
+\label{fig:farbspectrum}
+\end{figure}
+
+\subsection{Begriffe}
+\begin{description}[labelindent=1cm]
+  \item[Spektralfarben] bestehen aus Licht einer bestimmten Wellenlänge. Auch Spektralfarben haben Komplementärfarben.
+  \item[Spektralverteilung] Dadurch können verschiedene Lichtquellen charakterisiert/unterschiedenen werden. Diese gibt an wie viel Energie in jeder Wellenlänge abgestrahlt wird. Es gibt verschieden Spektralverteilungen die als "weiss" wargenommen werden.
+  \item[Farbe einer Fläche] Licht fällt von einer Lichtquelle auf ein Objekt und wird von diesem zum Auge (oder zur Kamera) reflektiert.
+  \item[Weitere Begriffe in der physikalischen Betrachtung] Lichtstärke, Lichtsromdichte, Leuchtdichte, Spezifische Lichtausstrahlung
+\end{description}
+
+\section{Farbwahrnehmung}
+Wir nehmen Farben anders wahr als sie z.B. durch ihre physikalischen Eigenschaften definiert sind.\\
+\textbf{Tristimulustheorie:} Auf der Netzhaut befinden sich 3 Arten von Zellen (Zäpfchen) , die auf Licht reagieren. Ihre höchste Empfindlichkeit liegt bei \textbf{rot, grün und blau}.
+\begin{description}[labelindent=1cm]
+  \item[Stäbchen und Zäpfchen] bestimmen Auflösungsvermögen und Farbempfindlichkeit des Auges.
+  \item[Stäbchen (75-150 x 10ˆ6)] ermöglichen das Sehen bei niedriger Intensität. Nur Schwarz/Weiss-Sehen.
+  
+  \item[Zäpfchen (6-7 x 10ˆ6)] sind Fotorezeptoren für Licht höherer Intensität und für Farben. Fotopigmente sensibilisieren für rot (64\%), grün (32\%) und blau (4\%). Lange, mittlere und kurze Zäpfchen für lange (rot), mittlere (grün) und kurze Wellenlängen (blau)
+  
+  \item[Die Zäpfchen] sprechen jedoch auf einen ganzen Bereich von Wellenlängen an, nicht nur genau auf die Wellenlängen von rot, grün und blau. Neutraler werden sie daher auch als S, M und L bezeichnet.
+\end{description}
+
+  
+\subsection{Wie sehen wir Farben}
+\begin{itemize}
+    \item Zäpfchen wirken wie ein Filter
+    \item Farbe wird durch die Stärke der Antwort jeder Zäpfchensorte bestimmt: 3 Werte
+    \item Damit kann nicht jede Spektraldichte repräsentiert werden
+    \item Farben mit unterschiedlichen Spektren können also gleich aussehen: metamere Farben
+\end{itemize}
+\noindent
+\textbf{WICHTIG:}\\Es ist also NICHT möglich jede Farbe mit rot, grün und blau zu mischen. Jedoch ein sehr grosser Anteil.
+Das Tristimulustheorie-Experiment zeigte, dass die Kurven der Wellenlängen auch negativ sein können. D.h. man müsste Farben auch subtrahieren - was nicht geht. 
+
+\clearpage
+\section{Farbsysteme}
+\subsection{Normfarbtafel}
+Der Schnitt des 3D Farbraums mit der Ebene die durch (1,0,0), (0,1,0) und (0,0,1) geht ergibt die Normfarbtafel. Sie enthält alle Farbtöne.
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=0.4\linewidth]{fig/normfarbtafel}
+\includegraphics[width=0.4\linewidth]{fig/normfarbtafel2}
+\caption{Normfarbtafel}
+\label{fig:normfarbtafel}
+\end{figure}
+
+\subsubsection{Wichtige Eigenschaften}
+\begin{itemize}[leftmargin=1cm]
+    \item Sie enthält alle sichtbaren Farben in vollen Intensität
+    \item Spektralfarben befinden sich am Rand (siehe Spektralfarbenlinie in Abb. \ref{fig:normfarbtafel} links)
+    \item Der gerade Teil der Umrandung heisst \textit{Purpurlinie}
+    \item \textbf{Mischen von Farben} Sind 2 Farben F1 und F2 auf der Tafel gegeben, so lassen sich mit ihnen alle Farben auf der Verbindungslinie zwischen F1 und F2 erzeugen.
+    \item Dominante Wellenlänge. Eine Farbe F im Diagramm kann durch mischen von Weiss (C) mit einer Farbe D auf dem Rand des Diagramm erzeugt werden. D ist die dominante Wellenlänge von F.
+    \item Farben im unteren Teil des Diagramms besitzen keine dominante Wellenlänge und werden daher nicht spektral genannt.
+    \item \textbf{Komplementärfarben} Farben die sich zu weiss addieren heissen Komplementärfarben. Das heisst, die Verbindungslinie zwischen zwei Komplementärfarben muss durch Weiss gehen.
+\end{itemize}
+\subsubsection{Farben am Monitor}
+Ein bestimmter Monitor verwendet drei Farben (rot, grün, blau). Es können alle Farben in diesem Dreieck dargestellt werden (siehe Abb. \ref{fig:normfarbtafel} links) aber nicht alle der CIE Farbtafel. 
+
+
+\subsection{Übersicht Farbsysteme}
+Die meisten Farbsystem sind drei-dimensional und Stellen eine Farbe also durch 3 Komponenten dar.\\
+Es gibt Hardware orientiere Farbsysteme:
+\begin{itemize}[leftmargin=1cm]
+    \item RGB für Bildschirme
+    \item CMY(K) für die Drucktechnik
+    \item YIQ (NTSC, Fernsehen USA/Japan)
+    \item YUV, YCrCb: Video/TV-Farbsysteme (PAL, NTSC, SECAM)
+\end{itemize}
+\noindent
+oder intuitive Farbsysteme wie
+\begin{itemize}[leftmargin=1cm]
+    \item HSV, HSI
+    \item Munsell
+    \item CIELab
+\end{itemize}
+
+
+
+
+\subsection{RGB} 
+Ist ein additives Farbsystem. Eine Farbe wird durch 3 Grundfarben rot (R), grün (G) und blau (B) dargestellt. \\
+C = (R, G, B)\\
+Wertebereich für RGB ist das Intervall [0,1]. Dies kann allerdings auf 8bit (0..255), 12bit oder 16bit abgebildet werden.
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=0.7\linewidth]{fig/RGBvCMYK}
+\caption{RGB (additives Farbsystem) vs. CMYK (subtraktives Farbssystem)}
+\label{fig:rgbundcmyk}
+\end{figure}
+\subsubsection{Additive Mischung}
+Bei der additiven Mischung von Farben empfängt das Auge die einzelnen Farben, der Farbeindruck entsteht durch die Addition der Spektren. Beispiel für additive Farbmischung:
+\begin{itemize}[leftmargin=1cm]
+    \item Monitore, Fernseher
+    \item Scheinwerfer, Spotlights
+    \item Kunst: Pointilismus
+\end{itemize}
+
+
+\subsection{CMYK} 
+Wird beim Drucken eine Farbe auf eine Oberfläche aufgetragen, so absorbiert sie ein Teil des Lichtes. Werden mehrere Farbe aufgetragen, so wird nur derjenige Teil des Lichtes reflektiert, der von keiner Farbe absorbiert wurde. Farben addieren sich also nicht, sondern werden vom Licht subtrahiert, man nennt das auch subtraktive Farbmischung.\\
+CMY ist ein Farbsystem für die subtraktive Farbmischung, es besteht aus den Komplementärfarben von RGB : C = cyan, M = magenta und Y = yellow (gelb).\\
+Der Zusammenhang zwischen RGB und CMY ist also:
+
+\begin{gather*}
+\begin{pmatrix} C \\ M \\ Y \end{pmatrix} = 
+\begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix} -
+\begin{pmatrix} R \\ G \\ B \end{pmatrix}
+\end{gather*}
+\begin{gather*}
+C = B + G = W - R \\
+M = R + B = W - G \\
+Y = G + R = W - B \\
+\end{gather*}
+
+\noindent
+Schwarz könnte zwar mittels C, M, Y gemischt werden, doch das Ergebnis ist schlecht (und auch zu teuer). Häufig wird deshalb noch Schwarz als vierte Farbe verwendet. Dieses System heisst CMYK (von blac\textbf{K}) und berechnet sich als:
+\begin{gather*}
+K = min(C, M, Y )\\
+C = C - K \\
+M = M - K \\
+Y = Y - K \\
+\end{gather*}
+
+Farben:
+
+
+\subsection{HSV} 
+HSV ist ein benutzerorientiertes Farbsystem, das sich nach der intuitiven Definition einer Farbe mittles Farbton, Sättigung und Helligkeit richtet:
+\begin{center}
+\begin{tabular}{ | l | l | p{5cm} | p{5cm} |}
+\hline
+H & Hue        & Farbton, spektraler Teil der Farbe; bestimmt ob Farbe rot, gelb, grün, etc & in Grad von 0 bis 360  (R=0, G=120, B=240)                              \\ \hline
+S & Saturation & Sättigung, bestimmt die Reinheit der Farbe.                                & zwischen 0 (vollständig ungesättigt = Grauton) und 1 (gesättigte Farbe) \\ \hline
+V & Value      & Helligkeit, Intensität.                                                    & zwischen 0 (schwarz) und 1 (volle Intensität)   \\     
+\hline
+\end{tabular}
+\end{center}
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=0.4\linewidth]{fig/hsv1}
+\includegraphics[width=0.4\linewidth]{fig/hsv2}
+\caption{HSV}
+\label{fig:hsv}
+\end{figure}
+
+\section{Halbtontechnik}
+\subsection{Grauwerte}
+Der Grauwert einer RGB-Farbe ist nicht der Mittelwert von R, G und B sondern:
+\begin{gather*}
+I = 0.299R + 0.587G + 0.114B
+\end{gather*}
+\begin{tabular}{|l|l|}
+\hline
+\rowcolor[HTML]{000000} 
+{\color[HTML]{FFFFFF} \textbf{Farbe (in RGB)}} & {\color[HTML]{FFFFFF} \textbf{Grauwert (in RGB)}} \\ \hline
+(255,0,0)                                      & (76,76,76)                                        \\ \hline
+(0,128,0)                                      & (75,75,75)                                        \\ \hline
+(200,200,200)                                  & (200,200,200)                                     \\ \hline
+(255,200,128)                                  & (208,208,208)                                     \\ \hline
+\end{tabular}
+
+
+\subsection{Quantisierung}
+Einfache aber nicht akzeptable Lösung. Die im ursprünglichen Bild verwendeten Farben, werden auf die Anzahl vorhandenen Farben quantisiert. 
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=0.8\linewidth]{fig/quantisierung}
+\caption{Quantisierung}
+\label{fig:Quantisierung}
+\end{figure}
+\subsubsection{Beispiel Konvertierung der Intensitätsstufen:}
+Gegeben ist ein Bild mit Graustufen von 0-255. Es soll nun in 10 Stufen (3x3 Matrix) dargestellt werden. \(255 / 10 = 25.5 \)
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=0.5\linewidth]{fig/quantisierung_bsp}
+\label{fig:quantisierung_bsp}
+\end{figure}
+
+
+
+\subsection{Dithering} 
+Dithering wird verwendet um Farben auf einem Gerät zu simulieren, das weniger Farben darstellen kann. Jeder Pixel wird durch eine \(n \times n\)  Matrix ersetzt. Die Bildgrösse wird also vergrössert. Die Anzahl Intenistätsstufen ergibt sich durch  \((n \times n) + 1 \). Das heisst bei: 2x2 = 5 / 3x3 = 10 / 4x4 = 17
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=0.7\linewidth]{fig/dithermatrix}
+\label{fig:dithermatrix}
+\end{figure}
+
+\subsubsection{Wichtige Regeln für Dithering}
+\begin{itemize}
+    \item Strukturen sollten möglichst vermieden werden. Keine horizontale Streifen erzeugen (3 4 5; 1 0 2; 5 7 8)
+    \item Es sollten möglichst Kreise approximiert werden.
+    \item Einmal gefärbte Punkte sollen im nächsten Level gefärbt bleiben (ist bei der Verwendung von Dither-Matrizen automatisch der Fall)
+\end{itemize}
+
+
+
+
+
+\subsection{Dithering bei gleichbleibender Bildgrösse}
+Hierzu gibt es folgende Methoden:
+\subsubsection{Clustered dot dithering}
+Berechnen des Mittelwert einer n x n Region und ersetzen der Region durch die Dithermatrix
+
+
+
+\subsubsection{Dispersed dot dithering} 
+Vergleich der einzelnen Pixel mit den Werten der Dithermatrix
+Verwendet wird wieder eine n x n Matrix \(D_{ij}^{(n)}\). Für jeden Punkt wird
+\begin{gather*}
+i = x \mod n\\
+j = y \mod n\\
+\end{gather*}                                           
+berechnet. Der Pixel wird gesetzt, falls seine Intensität grösser ist, als der Wert der Matrix.
+\begin{gather*}
+I(x,y) > D_{ij}^{(n)}   
+\end{gather*}
+Dieser Algorithmus wird Allgemein zur Reduktion der Graustufen/Farben verwendet, und nicht unbedingt nur zum Drucken von Bildern. Da ein Bildschirm individuelle Punkte viel besser darstellen kann als ein Drucker, muss die Matrix nicht allen oben beschriebenen Anforderungen genügen. Eine geeignete Matrix ist zum Beispiel die Bayes-Matrix
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=0.5\linewidth]{fig/bayesmatrix}
+\includegraphics[width=0.3\linewidth]{fig/disperseddot}
+\caption{Bayes Matrix (links) \& Dispersed Dot Dithering (rechts)}
+\label{fig:bayesmatrix}
+\end{figure}
+
+\noindent
+\textbf{Dispersed Dot Dithering Quiz-Übung}\\
+Ein Bild (Tabelle oben links in Abb. \ref{fig:dispdot_bsp}) ist in den Grauwerten von 0-255 gegeben und soll auf einem Bildschirm dargestellt werden der nur 2 Farben zur Verfügung hat. Die Grösse sollte dabei nicht verändert werden. 
+Geben Sie eine gesetzten Pixel mit 1, ungesetzten mit 0 an (siehe Lösungstabelle unten in Abb. \ref{fig:dispdot_bsp})
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=0.7\linewidth]{fig/disperseddot_bsp}
+\caption{Dispersed Dot Dithering Quiz-Übung}
+\label{fig:dispdot_bsp}
+\end{figure}
+
+
+\subsubsection{Error Diffusion}
+Anstatt Kreise verschiedener Grösse zu nehmen, können auch Punkte verschieden dicht angeordnet werden. (Frequenz-Verfahren). Die Idee dabei ist, dass der Fehler der durch das Setzen eines Pixels auf schwarz oder weiss gemacht wird, auf die umliegenden Pixel verteilt wird. Das Bild wird dabei sequentiell von oben nach unten und von links nach rechts durchlaufen. Der Fehler wird anhand der folgenden Gewichte auf die noch nicht besuchten Pixel verteilt:\\
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=0.2\linewidth]{fig/errordif2}
+\end{figure}
+\noindent
+Der Algorithmus lautet als (für jeden Pixel (x;y)):\\
+Error-Diffusion (nach Floyd und Steinberg):\\
+\begin{figure}[!ht]
+\includegraphics[width=0.4\linewidth]{fig/errordif1}
+\end{figure}\\
+\noindent
+\textbf{Vorgehen bei Aufgabe} \\
+\begin{enumerate}
+  \item Zu verarbeitenden Pixel anschauen
+  \item Bestimmen auf welchen Wert der Pixel gesetzt wird
+  \item Fehler berechnen (Fehler = Differenz aus Neuer Wert und Ursprünglicher Wert)
+  \item Den Rest gemäss Tabelle oben berechnen (Bsp. 7/16 * Fehler)
+  \item Rest gemäss Formel auf umliegende Felder verteilen (Neuer Wert des Feldes = ursprünglichen Wert - Rest)
+\end{enumerate}
+
+\clearpage
+\section{Cheat-Sheet}
+\subsection{HSV to RGB}
+
+\(
+M = 255 * V\\
+m = M x (1-S)\\
+z = (M - m) * (1 - |(H/60) \bmod 2 - 1|)
+\)
+
+\begin{table}[!ht]
+\begin{tabular}{| l | l | l | l |}
+ \hline
+H-Wert (in Grad)      & R     & G     & B    \\  \hline
+0 <= H \textless 60    & M     & z + m & m     \\
+60 <= H \textless 120  & z + m & M     & m     \\
+120 <= H \textless 180 & m     & M     & z + m \\
+180 <= H \textless 240 & m     & z + m & M     \\
+240 <= H \textless 300 & z + m & m     & M     \\
+300 <= H \textless 360 & M     & m     & z + m \\
+ \hline
+\end{tabular}
+\end{table}

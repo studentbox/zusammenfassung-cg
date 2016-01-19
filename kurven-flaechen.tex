@@ -1,1 +1,46 @@
 \chapter{Kurven und Flächen}
+
+\section{Kurven in der Ebene}
+Gar nicht so schwierig! Wir haben irgendein Intervall, also eine Zahlenreihe von a nach b. Mathematisch ausgedrückt wäre das dann
+\begin{displaymath}
+[a,b]\rightarrow\mathbb{R}
+\end{displaymath}
+All diese Zahlen in diesem Intervall setzen wir einfach in eine Funktion hinein und voila - eine Kurve. Jetzt gibt es eine implizite Art, eine Kurve darzustellen und eine explizite Art.
+\subsection{Implizite Darstellung}
+Am Beispiel eines Kreises wäre die implizite Darstellung:
+\begin{displaymath}
+x^2 + y^2 - r^2 = 0
+\end{displaymath}
+Das heisst in einer impliziten Darstellung können wir z.B. nicht einfach die Zahlen von a nach b einsetzen, sondern die Gleichung ist einfach für alle zutreffenden Punkte = 0. Wenn wir Glück haben, ist die implizite Darstellung umwandelbar in eine explizite.
+\subsection{Explizite Darstellung}
+Eigentlich einfach eine Funktion.
+Für den oberen Halbkreis:
+\begin{displaymath}
+y = \sqrt{r^2-x^2}
+\end{displaymath}
+und den unteren Halbkreis:
+\begin{displaymath}
+y = -\sqrt{r^2-x^2}
+\end{displaymath}
+\subsection{Parameter Darstellung}
+\(t\) bedeutet hier die \textit{Zeit} und geht von a nach b. Beispiel mit dem Kreis, wo die \textit{Zeit} von \(0\) bis \(2\pi\) geht:
+\begin{displaymath}
+X(t) = 
+\begin{pmatrix}
+x_1(t) \\
+x_2(t)
+\end{pmatrix} = 
+\begin{pmatrix}
+r*cos(t)\\
+r*sin(t)
+\end{pmatrix}
+\end{displaymath}
+Die Parameterdarstellung ist nicht unbedingt eindeutig, also auch z.B. 
+\begin{displaymath}
+X(t) = 
+\begin{pmatrix}
+r*cos(2t)\\
+r*sin(2t)
+\end{pmatrix}
+\end{displaymath}
+beschreibt einen Kreis, wobei hier die \textit{Zeit} von 0 bis \(\pi\) geht - also er wird einfach 'schneller' durchlaufen.

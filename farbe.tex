@@ -290,24 +290,30 @@ Error-Diffusion (nach Floyd und Steinberg):\\
 
 \clearpage
 \section{Cheat-Sheet}
-\subsection{HSV to RGB}
+\subsection{Farbumrechnung}
+\begin{figure}[!ht]
+	\includegraphics[width=1.0\linewidth]{fig/cheatsheet}
+\end{figure}
+\noindent
 
-\(
-M = 255 * V\\
-m = M x (1-S)\\
-z = (M - m) * (1 - |(H/60) \bmod 2 - 1|)
-\)
-
+\subsection{Farbtabelle}
 \begin{table}[!ht]
-\begin{tabular}{| l | l | l | l |}
- \hline
-H-Wert (in Grad)      & R     & G     & B    \\  \hline
-0 <= H \textless 60    & M     & z + m & m     \\
-60 <= H \textless 120  & z + m & M     & m     \\
-120 <= H \textless 180 & m     & M     & z + m \\
-180 <= H \textless 240 & m     & z + m & M     \\
-240 <= H \textless 300 & z + m & m     & M     \\
-300 <= H \textless 360 & M     & m     & z + m \\
- \hline
-\end{tabular}
-\end{table}
+	\resizebox{\textwidth}{!}{%
+		\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|}
+			\hline
+			\rowcolor[HTML]{000000} 
+			{\color[HTML]{FFFFFF} \textit{}} & {\color[HTML]{FFFFFF} \textit{Farbe}} & {\color[HTML]{FFFFFF} \textit{R}} & {\color[HTML]{FFFFFF} \textit{G}} & {\color[HTML]{FFFFFF} \textit{B}} & {\color[HTML]{FFFFFF} \textit{H º}} & {\color[HTML]{FFFFFF} \textit{S \%}} & {\color[HTML]{FFFFFF} \textit{V \%}} & {\color[HTML]{FFFFFF} \textit{C}} & {\color[HTML]{FFFFFF} \textit{M}} & {\color[HTML]{FFFFFF} \textit{Y}} & {\color[HTML]{FFFFFF} \textit{C}} & {\color[HTML]{FFFFFF} \textit{M}} & {\color[HTML]{FFFFFF} \textit{Y}} & {\color[HTML]{FFFFFF} \textit{K}} \\ \hline
+			\cellcolor[HTML]{000000}{\color[HTML]{000000} } & Schwarz & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 1 & 0 & 0 & 0 & 1 \\ \hline
+			& Weiss & 255 & 255 & 255 & 0 & 0 & 100 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
+			\cellcolor[HTML]{FF0000} & Rot & 255 & 0 & 0 &  & 100 & 100 & 0 & 1 & 1 & 0 & 1 & 1 & 0 \\ \hline
+			\cellcolor[HTML]{00FF00} & Grün & 0 & 255 & 0 & 120 & 100 & 100 & 1 & 0 & 1 & 1 & 0 & 1 & 0 \\ \hline
+			\cellcolor[HTML]{0000FF} & Blau & 0 & 0 & 255 & 240 & 100 & 100 & 1 & 1 & 0 & 1 & 1 & 0 & 0 \\ \hline
+			\cellcolor[HTML]{FFFF00} & Yellow & 255 & 255 & 0 & 600 & 100 & 100 & 0 & 0 & 1 & 0 & 0 & 1 & 0 \\ \hline
+			\cellcolor[HTML]{00FFFF} & Cyan & 0 & 255 & 255 & 180 & 100 & 100 & 1 & 0 & 0 & 1 & 0 & 0 & 0 \\ \hline
+			\cellcolor[HTML]{FF00FF} & Magenta & 255 & 0 & 255 & 300 & 100 & 100 & 0 & 1 & 0 & 0 & 1 & 0 & 0 \\ \hline
+			\cellcolor[HTML]{003200} & Dunkelgrün & 0 & 50 & 0 & 120 & 100 & 19.6 & 1 & 0.803921568627451 & 1 & 1 & 0 & 1 & 0.804 \\ \hline
+			\cellcolor[HTML]{241409} & Braun & 36 & 20 & 9 & 24 & 75 & 14.1 & 0.8588235294117648 & 0.9215686274509804 & 0.9647058823529412 & 0 & 0.444 & 0.75 & 0.859 \\ \hline
+			\cellcolor[HTML]{BEBEBE} & Grau & 190 & 190 & 190 & 0 & 0 & 74.5 &  &  &  & 0 & 0 & 0 & 0.255 \\ \hline
+			\cellcolor[HTML]{FFA500} & Orange & 255 & 165 & 0 & 39 & 100 & 100 & 0 & 0.3529411764705882 & 1 & 0 & 0.353 & 1 & 0 \\ \hline
+		\end{tabular}}
+	\end{table}

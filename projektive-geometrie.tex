@@ -431,6 +431,149 @@ Diese kann man als eine Transformation zusammennehmen durch Multiplikation:
 \end{figure}
 
 \newpage
+
+\section{Transformation: Spiegelung an einer Geraden}
+Eine direkte Spiegelung ist nur möglich, wenn die Gerade durch den Ursprung geht. Tut sie dies nicht, muss zuerst eine Translation durchgeführt werden. Dies macht man folgendermassen.
+
+Einer Geraden $g$ sieht man gleich zu Beginn an, ob sie durch den Nullpunkt geht, nämlich wenn sie eine Verschiebungskonstante hat, also in der Form $g = ax + by + c$ mit $c \neq 0$ vorliegt.
+
+Nach der Verschiebung findet die eigentliche Spiegelung statt. Dazu muss man zuerst herausfinden, in welchem Winkel die Gerade zum Ursprung steht. Dazu verwendet man den Tangens, weil bekannt ist, in welchem Verhältnis $x$ zu $y$ steht, nämlich mit der Steigung $m$ (vergleiche dazu die Gleichung $y = mx + q$)! Man kann also den Arcus-Tangens verwenden, um $\delta$ herauszufinden:
+
+\begin{align}
+\begin{split}
+\tan (\delta) &= m \\
+\delta &= \arctan (m)
+\end{split}
+\end{align}
+
+Man könnte auch direkt in Kosinus und Sinus umwandeln mit der Formel:
+
+\begin{align}
+\begin{split}
+\cos (2\delta) &= \frac{1-\tan^2 (\delta)}{1+\tan^2 (\delta)}\\
+\sin (2\delta) &= \frac{2\tan^2 (\delta)}{1+\tan^2 (\delta)}
+\end{split}
+\end{align}
+
+Danach verwendet man die \textbf{Nullpunkt-Spiegelungsmatrix}:
+
+\[
+\sigma' =\begin{pmatrix}
+\cos (2\delta) & \sin (2\delta) & 0\\
+\sin (2\delta) & -\cos (2\delta) & 0\\
+0 & 0 & 1\\
+\end{pmatrix}
+\]
+
+Jetzt muss man nur noch die Translation rückgängig machen mit $T^{-1}$ (Inverse von T).
+
+Zusammengesetzt ergibt sich die \textbf{Spiegelungsmatrix} $\sigma = T^{-1}*\sigma'*T$.\\
+
+Die \textbf{Bildpunkte} erhält man durch Multiplikation der Punkte mit der Spiegelungsmatrix:
+\[
+A' = \sigma * A
+\]
+
+\subsection{Beispiel}
+Gegeben ist die Gerade $g = 2x - 3y + 2$. Wir wollen die Spiegelung $\sigma$ an dieser Geraden betrachten. Gesucht sind:
+
+\begin{enumerate}
+\item \textbf{Die Matrix $\sigma$}
+
+Man bringt die Gerade erstmal in die Form $y = mx + q$:
+\begin{align}
+\begin{split}
+2x - 3y + 2 &= 0\\
+\Rightarrow y &= \frac{2x + 2}{3}
+\end{split}
+\end{align}
+Um nun einen Punkt der Geraden zu finden, muss man einfach für $x$ einsetzen (ich wähle 2, da es so eine schöne Lösung gibt):
+\begin{align}
+\begin{split}
+y &= \frac{2*2 + 2}{3}\\
+&=  \frac{6}{3} = 2
+\end{split}
+\end{align}
+Ein Punkt, der auf der Geraden liegt, ist also $p_g = (2,2)$.
+
+Das heisst, dass die Translationsmatrix folgendermassen aussieht (so wird der Punkt in den Ursprung verschoben):
+\[
+T_{p_g} = \begin{pmatrix}
+1 & 0 & -2\\
+0 & 1 & -2\\
+0 & 0 & 1
+\end{pmatrix}
+\]
+
+Wir kennen das Verhältnis von der Gegenkatete zur Ankatete, nämlich: 
+
+\[
+\tan (\delta) = \frac{2}{3}
+\]
+
+Eingesetzt können wir nun berechnen:
+\begin{align}
+\begin{split}
+\cos (2\delta) = \frac{1-\frac{2}{3}^2}{1+\frac{2}{3}^2} = \frac{1-\frac{4}{9}}{1+\frac{4}{9}} = \frac{\frac{5}{9}}{\frac{14}{9}} &= \frac{5}{14}\\
+\sin (2\delta) = \frac{2\frac{2}{3}}{1+\frac{2}{3}^2} = \frac{\frac{4}{3}}{1+\frac{4}{9}} = \frac{\frac{12}{9}}{\frac{14}{9}} = \frac{12}{14} &= \frac{6}{7}\\
+\end{split}
+\end{align}
+
+Nun muss man dies nur noch in die Spiegelungsmatrix einsetzen:
+
+\[
+\sigma' = 
+\begin{pmatrix}
+\frac{5}{14} & \frac{6}{7} & 0\\
+\frac{6}{7} & -\frac{5}{14} & 0\\
+0 & 0 & 1
+\end{pmatrix}
+\]
+
+Schliesslich kann man "da real"-Spiegelungsmatrix $\sigma$ folgendermassen berechnen:
+
+\[
+\underline{\underline{\sigma = T^{-1}\sigma T = 
+\begin{pmatrix}
+\frac{5}{14} & \frac{6}{7} & -\frac{6}{14}\\
+\frac{6}{7} & -\frac{5}{14} & 1\\
+0 & 0 & 1
+\end{pmatrix}}}
+\]
+
+\item Die Bildpunkte von $A = (8, 1)$ und $B=(-65.4, 0.2)$.
+
+Man setzt die Punkte in die Matrix:
+
+\[
+Points = \begin{pmatrix}
+8 & -65.4 \\
+1 & 0.2 \\
+1 & 1
+\end{pmatrix}
+\]
+
+Danach berechnet man $\sigma * Points$ und erhält das Resultat:
+
+\[
+ResultMatrix = \begin{pmatrix}
+0.78... & -23.61... \\
+1.5 & -55.12... \\
+1 & 1
+\end{pmatrix}, 
+\underline{\underline{A' = 
+\begin{pmatrix}
+0.78...\\
+1.5 
+\end{pmatrix}, B' = 
+\begin{pmatrix}
+-23.61... \\
+55.12... 
+\end{pmatrix}}}
+\]
+
+\end{enumerate}
+
 \section{Vektorprodukt}
 
 \begin{figure}[!ht]

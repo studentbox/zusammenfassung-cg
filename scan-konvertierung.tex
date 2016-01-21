@@ -16,8 +16,8 @@ Pro Spalte haben wir ja immer nur 1 Pixel gesetzt hier, d.h wir müssen jeweils 
 
 
 
-\subsection{Brute Force Ansatz}
-Im Bruteforce Ansatz berechnen wir zuerst den genauen Y-Wert, ganz nach der Formel \(y(x)=mx+b\). Dann runden wir dies auf die nächste ganze Zahl und haben den Wert, welcher Pixel gezeichnet werden soll. Das machen wir für jede Spalte - ist also entsprechend aufwändig zu berechnen, da für jeden Pixel eine Multiplikation gemacht werden muss. Besser wäre es, ausgehend vom Startpixel zu rechnen - denn in der Formel erhöht sich x ja immer um 1, das heisst es wird einfach immer \(+ m\) ausgegeben. Wir haben dann also:
+\subsection{Digital Differential Analyzer}
+Beim Digital Differential Analyzer (DDA) berechnen wir zuerst den genauen Y-Wert, ganz nach der Formel \(y(x)=mx+b\). Dann runden wir dies auf die nächste ganze Zahl und haben den Wert, welcher Pixel gezeichnet werden soll. Das machen wir für jede Spalte - ist also entsprechend aufwändig zu berechnen, da für jeden Pixel eine Multiplikation gemacht werden muss. Besser wäre es, ausgehend vom Startpixel zu rechnen - denn in der Formel erhöht sich x ja immer um 1, das heisst es wird einfach immer \(+ m\) ausgegeben. Wir haben dann also:
 \begin{displaymath}
 y_{i+i}=y_i+m
 \end{displaymath}
@@ -101,6 +101,13 @@ Damit wir wissen, von wo nach wo die Pixel gezeichnt werden sollen, müssen wir 
 	\caption{Scanlinien Algorithmus}
 	\label{scanlinie_algo}
 \end{figure}
+\begin{figure}
+\centering
+\includegraphics[width=0.7\linewidth]{fig/scanlinie_tafel}
+\caption{Scanlinien Algorithmus}
+\label{fig:scanlinie_tafel}
+\end{figure}
+
 \section{Dreiecke zeichnen - à la Brute Force}
 Das ist furzeinfach. Wir haben oben ja gesehen, dass wir mit der Liniengleichung bestimmen können, ob ein Punkt oberhalb oder unterhalb einer Linie ist. Ein Dreieck besteht ja eigentlich nur aus 3 Linien, das heisst wir prüfen für jeden Pixel, ob die Gleichung für alle Dreieckslinien aufgeht - wenn ja zeichnen wir ihn, sonst lassen wirs sein. Die in Abbildung \ref{dreiecke_zeichnen} eingefärbten Regionen bezeichnen die Region, welche \textit{innerhalb} der Kante des Dreiecks liegen. Dort, wo sich alle Farben überlappen, dort werden die Pixel entsprechend gezeichnet.
 \begin{figure}[!ht]

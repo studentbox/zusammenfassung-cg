@@ -254,16 +254,91 @@ Dieser Algorithmus wird Allgemein zur Reduktion der Graustufen/Farben verwendet,
 \label{fig:bayesmatrix}
 \end{figure}
 
-\noindent
-\textbf{Dispersed Dot Dithering Quiz-Übung}\\
+
+\subsubsection{Dispersed Dot Dithering Quiz-Übung}
 Ein Bild (Tabelle oben links in Abb. \ref{fig:dispdot_bsp}) ist in den Grauwerten von 0-255 gegeben und soll auf einem Bildschirm dargestellt werden der nur 2 Farben zur Verfügung hat. Die Grösse sollte dabei nicht verändert werden. 
-Geben Sie eine gesetzten Pixel mit 1, ungesetzten mit 0 an (siehe Lösungstabelle unten in Abb. \ref{fig:dispdot_bsp})
-\begin{figure}[!ht]
-\centering
-\includegraphics[width=0.7\linewidth]{fig/disperseddot_bsp}
-\caption{Dispersed Dot Dithering Quiz-Übung}
-\label{fig:dispdot_bsp}
-\end{figure}
+Geben Sie eine gesetzten Pixel mit 1, ungesetzten mit 0 an (siehe Lösung in Abb. \ref{fig:dispdot_bsp})
+
+Man nehme die Ausgangstabelle:
+
+\begin{table}[!ht]
+	\centering
+	\caption{Tabelle mit Pixelwerten von 0 - 255}
+	\label{tbl:ausgangstabelle}
+	\begin{tabular}{|l|l|l|l|}
+		\hline
+		30 & 200 & 250 & 240 \\ \hline
+		6  & 56  & 120 & 141 \\ 
+		\hline
+	\end{tabular}
+\end{table}
+
+Wir haben hier jetzt eine 2x2 Dithermatrix:
+
+\begin{displaymath}
+D^2 = \begin{pmatrix}
+0 & 3 \\
+1 & 2
+\end{pmatrix}
+\end{displaymath}
+
+Wir müssen nun die Werte von der Ausgangstabelle \(0-255\) auf den Wertebereich der Matrix \(0-3\) herunterskalieren. Wir berechnen daher den Faktor, mit dem wir jeden Pixelwert multiplizieren um ihn auf diesen Wertebereich hinunterzubringen.
+\begin{displaymath}
+k = \frac{W_{max}}{n*n+1}
+\end{displaymath}
+
+\begin{description}
+	\item[\(\mathbf{W_{max}}\)] Maximalwert des Pixels (hier 255)
+	\item[\(\mathbf{n}\)] Grösse (also Breite oder Höhe) der Matrix (hier 2)
+	\item[\(\mathbf{k}\)] Resultierender Faktor
+\end{description}
+Der neue Wert eines Pixels berechnet sich dann einfach so:
+\begin{displaymath}
+W_{neu} = \lfloor W_{alt} * k \rfloor
+\end{displaymath}
+Wir erhalten dann folgende Zwischentabelle:
+
+\begin{table}[!ht]
+	\centering
+	\caption{Tabelle für die Dithermatrix}
+	\label{tbl:zwischentabelle}
+	\begin{tabular}{|l|l|l|l|}
+		\hline
+		0 & 3 & 4 & 4 \\ \hline
+		0  & 1  & 2 & 2 \\ 
+		\hline
+	\end{tabular}
+\end{table}
+Darüber legen wir nun einfach die Dithermatrix. Unsere Tabelle mit den Pixelwerten ist hier ja allerdings grösser als die Dithermatrix - dann legen wir sie einfach erneut hin, bis alles gefüllt ist. Mathematisch ausgedrückt setzen wir also hier eine 1 wenn folgender Ausdruck wahr ist:
+
+\begin{displaymath}
+	i = x \bmod n
+\end{displaymath}
+\begin{displaymath}
+	j = y \bmod n
+\end{displaymath}
+
+\begin{description}
+	\item[\(\mathbf{x}\)] Ausgangs X-Position Pixel 
+	\item[\(\mathbf{y}\)] Ausgangs Y-Position Pixel
+\end{description}
+
+\begin{displaymath}
+W_{x,y} > D_{i,j}
+\end{displaymath}
+Also wenn der Wert der Zwischentabelle grösser ist als der Wert in der Dithermatrix. Das Modulo Zeugs ist nur zum Mapping von der x Position des Pixels auf die Position innerhalb der Dither Matrix.
+
+\begin{table}[!ht]
+	\centering
+	\caption{Resultat}
+	\label{tbl:resultat_dither}
+	\begin{tabular}{|l|l|l|l|}
+		\hline
+		0 & 0 & 1 & 1 \\ \hline
+		0  & 0  & 1 & 0 \\ 
+		\hline
+	\end{tabular}
+\end{table}
 
 
 \subsubsection{Error Diffusion}

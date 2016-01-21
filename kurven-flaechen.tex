@@ -217,5 +217,71 @@ P(t) = (1-t)^3P_0+3(1-t)^2*t*P_1+3(1-t)^2P_2+t^3P_3
 ergibt. Dem aufmerksamen Leser wird nicht entgangen sein, dass diese Bézier Splines Eigenschaften vom Pascal'schen Dreieck haben.
 
 \subsection{Bernsteinpolynome}
-Nicht aufgeben! Kurz ein Schluck Wasser und weiter gehts.
+Nicht aufgeben! Kurz ein Schluck Wasser und weiter gehts. Es ist jetzt einfach das Ganze Bézier Splies Zeugs - einfach nochmals verallgemeinert. Wir vorhin angetönt - dem aufmerksamen Leser wird ja nicht entgangen sein, dass die Formel der Bézier Kurve irgendwie so ein Muster ähnlich dem Pascal'schen Dreieck hat.
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.2\linewidth]{fig/pascalsches_dreieck}
+	\caption{Pascal'sches Dreieck}
+	\label{fig:pascalsches_dreieck}
+\end{figure}
+Die Bausteine von Bézier Splines sind ja auch immer dieselben - also irgendwas mit \((1-t)\) und \(t\) selbst kommt auch irgendwie immer vor. Nehmen wir nochmals das Beispiel vom Kubischen Bézier Spline und zerlegen die End-Formel in die Summanden und nehmen noch kurz die Punkte nochmals raus:
 
+\begin{displaymath}
+1*(1-t)^3
+\end{displaymath}
+\begin{displaymath}
+3*(1-t)^2*t
+\end{displaymath}
+\begin{displaymath}
+3*(1-t)*t^2
+\end{displaymath}
+\begin{displaymath}
+1*t^3
+\end{displaymath}
+Die Faktoren zu Beginn des Terms stellen genau die Binomialkoeffizienten dar. Hier nochmals die Binomiailkoeffizienten-Berechnung:
+\begin{displaymath}
+\begin{pmatrix}
+n \\ i
+\end{pmatrix}
+= \frac{n!}{i!(n-i)!}
+\end{displaymath}
+Ersetzen wir die Faktoren doch gleich einmal:
+
+\begin{displaymath}
+\begin{pmatrix}
+3 \\ 0
+\end{pmatrix}*(1-t)^3
+\end{displaymath}
+\begin{displaymath}
+\begin{pmatrix}
+3 \\ 1
+\end{pmatrix}*(1-t)^2*t
+\end{displaymath}
+\begin{displaymath}
+\begin{pmatrix}
+3 \\ 2
+\end{pmatrix}*(1-t)*t^2
+\end{displaymath}
+\begin{displaymath}
+\begin{pmatrix}
+3 \\ 3
+\end{pmatrix}*t^3
+\end{displaymath}
+Das wärs auch schon gewesen. Denn jetzt können wir daraus die Formel für die einzelnen Teile sagen:
+\begin{displaymath}
+B^3_i(t)=\begin{pmatrix}3 \\ i\end{pmatrix}(1-t)^{3-i}t^i
+\end{displaymath}
+Und das sind dann schon die Bernsteinpolynome.
+Für \(i\) setzte man dann einfach eine Zahl zwischen 0 und 3 und man erhält dann den Term an der entsprechenden Position.\\ \newline
+Jetzt haben wir aber doch am Anfang die Punkte herausgenommen - wir wollen diese jetzt natürlich wieder hineinnehmen. Dazu müssen wir sie nur eben mit dem entsprechenden Term wieder multiplizieren. Die ganze Kubische Bézier Kurve lässt sich dann so schreiben:
+\begin{displaymath}
+P(t) = \displaystyle\sum_{i=0}^{3} B^3_i(t)*P_i
+\end{displaymath}
+Jetzt gehen wir ja nur bis 3 - können wir auch bis n gehen? Klar - das sind dann gerade die Bézier Kurven n. Ordnung.
+\begin{displaymath}
+P(t) = \displaystyle\sum_{i=0}^{n} B^n_i(t)*P_i
+\end{displaymath}
+Wobei dann die Bernsteinpolynome, also der Teil mit dem \(B\), so definiert sind:
+\begin{displaymath}
+B^n_i(t)=\begin{pmatrix}n \\ i\end{pmatrix}(1-t)^{n-i}t^i
+\end{displaymath}

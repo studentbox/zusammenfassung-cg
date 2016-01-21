@@ -183,16 +183,16 @@ sowohl grafisch wie auch rechnerisch (analytisch). Details der Vektoren sind in 
 \begin{description}
 	\item[Basisvektoren:]
 	Die Basisvektoren $\vec{e}_x$ und $\vec{e}_y$ sind orthogonal und haben die Länge 1,\\
-	d.h. $\vec{e}_x \bullet \vec{e}_x = 0$ und $\mid \vec{e}_x \mid = 1$ sowie $\mid \vec{e}_y \mid = 1$.
+	d.h. $\vec{e}_x \cdot \vec{e}_x = 0$ und $\mid \vec{e}_x \mid = 1$ sowie $\mid \vec{e}_y \mid = 1$.
 \end{description}
 
 \section{Skalarprodukt}
 
 Das Skalarprodukt zweier Vektoren $\vec{a}$ und $\vec{b}$ ist wie folgt definiert:\\
-$\vec{a} \bullet \vec{b} = \mid \vec{a} \mid \dot \mid \vec{b} \mid cos(\phi)$\\
+$\vec{a} \cdot \vec{b} = \mid \vec{a} \mid \dot \mid \vec{b} \mid cos(\phi)$\\
 In kartesischen Koordinaten gilt:\\
-$\vec{a} \bullet \vec{b} =
-\begin{pmatrix} a_{1} \\ a_{2} \end{pmatrix} \bullet
+$\vec{a} \cdot \vec{b} =
+\begin{pmatrix} a_{1} \\ a_{2} \end{pmatrix} \cdot
 \begin{pmatrix} b_{1} \\ b_{2} \end{pmatrix} =
 a_{1} b_{1} + a_{2} b_{2}$
 
@@ -204,7 +204,7 @@ $\vec{b} = \begin{pmatrix} -1 \\ 4 \end{pmatrix}$
 man berechne nun das Skalarprodukt sowie den Winkel $\phi$.\\
 
 \begin{math}
-	\vec{a} \bullet \vec{b} = 
+	\vec{a} \cdot \vec{b} = 
 	\begin{pmatrix} 4 \\ -2 \end{pmatrix} + 
 	\begin{pmatrix} -1 \\ 4 \end{pmatrix} =
 	4 (-2) + (-1) 4 = -4 -8 = -12
@@ -226,7 +226,7 @@ man berechne nun das Skalarprodukt sowie den Winkel $\phi$.\\
 
 \begin{math}
 	cos(\phi) =
-	\frac{\vec{a} \bullet \vec{b}}{\mid \vec{a} \mid \dot \mid \vec{b} \mid} = 
+	\frac{\vec{a} \cdot \vec{b}}{\mid \vec{a} \mid \dot \mid \vec{b} \mid} = 
 	\frac{-12}{\sqrt{20} \sqrt{17}} = 
 	-0.6508
 \end{math}
@@ -239,19 +239,19 @@ man berechne nun das Skalarprodukt sowie den Winkel $\phi$.\\
 \begin{description}
 	\item[Rechengesetze]
 \end{description}
-$\vec{a} \bullet \vec{b} = \vec{b} \bullet \vec{a}$ Kommutativgesetz\\
-$\vec{a} \bullet (\vec{b} + \vec{c}) = 
-\vec{a} \bullet \vec{b} + \vec{a} \bullet \vec{c}$
+$\vec{a} \cdot \vec{b} = \vec{b} \cdot \vec{a}$ Kommutativgesetz\\
+$\vec{a} \cdot (\vec{b} + \vec{c}) = 
+\vec{a} \cdot \vec{b} + \vec{a} \cdot \vec{c}$
 Distributivgesetz\\
-$\lambda (\vec{a} \bullet \vec{b}) = 
-(\lambda \vec{a}) \bullet \vec{b} = 
-\vec{a} \bullet (\lambda \vec{b})$
+$\lambda (\vec{a} \cdot \vec{b}) = 
+(\lambda \vec{a}) \cdot \vec{b} = 
+\vec{a} \cdot (\lambda \vec{b})$
 
 \begin{description}
 	\item[Orthogonale Vektoren]
 	Zwei Vektoren $\vec{a}$ und $\vec{b}$ stehen genau dann senkrecht aufeinander, sind also orthogonal, falls ihr Skalarprodukt verschwindet respektive 0 ist.\\
 	\begin{math}
-		\vec{a} \bullet \vec{b} = 0 \iff \vec{a} \perp \vec{b}
+		\vec{a} \cdot \vec{b} = 0 \iff \vec{a} \perp \vec{b}
 	\end{math}
 	\\Angenommen ein der Vektor $\vec{a} = \begin{pmatrix} 2 \\ 1 \end{pmatrix}$ sei gegeben. Um einen dazugehörenden orthogonalen Vektor zu erhalten muss folgende Formel aufgelöst werden:\\
 	\begin{math}
@@ -261,7 +261,7 @@ $\lambda (\vec{a} \bullet \vec{b}) =
 \end{description}
 \section{Spatprodukt}
 
-Das Spatprodukt $[\vec{a}, \vec{b}, \vec{c}]$ der drei Vektoren $\vec{a}$, $\vec{b}$ und $\vec{c}$ ist das Skalar $[\vec{a}, \vec{b}, \vec{c}] = \vec{a} \bullet (\vec{b} \times \vec{c})$.
+Das Spatprodukt $[\vec{a}, \vec{b}, \vec{c}]$ der drei Vektoren $\vec{a}$, $\vec{b}$ und $\vec{c}$ ist das Skalar $[\vec{a}, \vec{b}, \vec{c}] = \vec{a} \cdot (\vec{b} \times \vec{c})$.
 Der Betrag des Spatprodukts $\mid [\vec{a}, \vec{b}, \vec{c}] \mid$ ist das Volumen des durch die drei Vektoren $\vec{a}$, $\vec{b}$ und $\vec{c}$ aufgespannten Spats.
 
 \begin{figure}[!ht]

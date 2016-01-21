@@ -234,7 +234,153 @@ Addition zweier Vektoren\\
 $[\vec{a} + \vec{b}, \vec{c}, \vec{d}] = [\vec{a}, \vec{c}, \vec{d}] + [\vec{b}, \vec{c}, \vec{d}]$
 
 \section{Transformation: Translation in 2D}
+Um eine Figur in eine Richtung zu verschieben, kann man alle ihre Punkte als Matrix zusammennehmen, diese in eine höhere Dimension nehmen (in homogene Koordinaten umschreiben) und die Translation in derselben Dimension vornehmen, indem man in der rechtesten Spalte der Einheitsmatrix die Verschiebungen vornimmt.
 
+\subsection{Beispiel Translation 2D}
+
+Gegeben sind die Punkte $A=(3,1)$, $B=(6,1)$ und $C=(5,4)$ und die Verschiebungsrichtung $\vec{t} = \begin{pmatrix}1 & 2
+\end{pmatrix}$. 
+
+Man nimmt nun die Punkte alle zusammen in einer Matrix und erweitert diese die homogenen Koordinaten mit dem Wert 1 in der dritten Dimension (dargestellt unterhalb des Strichs in der Matrix):
+
+\[
+Points = \begin{pmatrix}
+A_x & B_x & C_x\\
+A_y & B_y & C_y\\ \hline
+1 & 1 & 1
+\end{pmatrix} = \begin{pmatrix}
+3 & 6 & 5\\
+1 & 1 & 4\\ \hline
+1 & 1 & 1
+\end{pmatrix}
+\]
+
+Den Verschiebungsvektor macht man nun zur Matrix. Dazu wird die Einheitsmatrix der neuen homogenen Dimension genommen und als rechteste Spalte wird der Vektor $\vec{t}$ eingesetzt. $\vec{t}$ wird als zu 
+
+$T=\begin{pmatrix}
+1 & 0 & t_x\\
+0 & 1 & t_y\\
+0 & 0 & 1
+\end{pmatrix}=\begin{pmatrix}
+1 & 0 & 1\\
+0 & 1 & 2\\
+0 & 0 & 1
+\end{pmatrix}$
+
+Nun muss man nur noch $T * M$ berechnen:
+\begin{align}
+\begin{split}
+T*Points &=\begin{pmatrix}
+1 & 0 & 1\\
+0 & 1 & 2\\
+0 & 0 & 1
+\end{pmatrix} * \begin{pmatrix}
+3 & 6 & 5\\
+1 & 1 & 4\\
+1 & 1 & 1
+\end{pmatrix}\\
+&= \begin{pmatrix}
+A_x' & B_x' & C_x'\\
+A_y' & B_y' & C_y'\\ \hline
+1 & 1 & 1
+\end{pmatrix} = \begin{pmatrix}
+4 & 7 & 6\\
+3 & 3 & 6\\ \hline
+1 & 1 & 1
+\end{pmatrix}
+\end{split}
+\end{align}
+
+Die Punkte der neuen Koordinaten sind also $A'=(4,3)$, $B'=(7,3)$ und $C'=(6,6)$.
+
+\section{Transformation: Rotation um einen Winkel $\Phi$ in 2D}
+
+Die Rotation um wird vorgenommen, indem folgende Matrix verwendet wird:
+\[
+T = \begin{pmatrix}
+\cos (\Phi) & -\sin (\Phi) & 0\\
+\sin (\Phi) & \cos (\Phi) & 0\\
+0 & 0 & 1
+\end{pmatrix}
+\]
+
+\section{Transformation: Rotation in 3D}
+
+\subsection{Rotation einen Winkel $\Phi$ um die z-Achse}
+
+$\textbf{R}_z(\Phi_z) = \begin{pmatrix}
+\cos (\Phi) & -\sin (\Phi) & 0 & 0\\
+\sin (\Phi) & \cos (\Phi) & 0 & 0\\
+0 & 0 & 1 & 0\\
+0 & 0 & 0 & 1
+\end{pmatrix}$
+
+Inverse davon ist:
+$\textbf{R}_z^{-1}(\Phi_z) = \begin{pmatrix}
+\cos (\Phi) & \sin (\Phi) & 0 & 0\\
+-\sin (\Phi) & \cos (\Phi) & 0 & 0\\
+0 & 0 & 1 & 0\\
+0 & 0 & 0 & 1
+\end{pmatrix}$
+
+\subsection{Rotation einen Winkel $\Phi$ um die y-Achse}
+
+$\textbf{R}_y(\Phi_y) = \begin{pmatrix}
+\cos (\Phi) & 0 & \sin (\Phi) & 0\\
+0 & 1 & 0 & 0\\
+-\sin (\Phi) & 0 & \cos (\Phi) & 0\\
+0 & 0 & 0 & 1
+\end{pmatrix}$
+
+Inverse davon ist:
+$\textbf{R}_y^{-1}(\Phi_y) = \begin{pmatrix}
+\cos (\Phi) & 0 & -\sin (\Phi) & 0\\
+0 & 1 & 0 & 0\\
+\sin (\Phi) & 0 & \cos (\Phi) & 0\\
+0 & 0 & 0 & 1
+\end{pmatrix}$
+
+\subsection{Rotation einen Winkel $\Phi$ um die y-Achse}
+
+$\textbf{R}_x(\Phi_x) = \begin{pmatrix}
+1 & 1 & 0 & 0\\
+0 & \cos (\Phi)  & -\sin (\Phi) & 0\\
+0 & \sin (\Phi) & \cos (\Phi) & 0\\
+0 & 0 & 0 & 1
+\end{pmatrix}$
+
+Inverse davon ist:
+$\textbf{R}_x^{-1}(\Phi_x) = \begin{pmatrix}
+1 & 1 & 0 & 0\\
+0 & \cos (\Phi)  & \sin (\Phi) & 0\\
+0 & -\sin (\Phi) & \cos (\Phi) & 0\\
+0 & 0 & 0 & 1
+\end{pmatrix}$
+
+\subsection{Rotation um eine beliebige Achse}
+\begin{enumerate}
+\item Rotation um den Winkel $\Phi$ um die z-Achse (hier Matrix D genannt)
+\item Rotation um den Winkel $\Theta$ um die frühere x-Achse mit der Matrix C.
+\item Rotation um den Winkel $\Psi$ um die frühere z-Achse mit der Matrix B.
+\end{enumerate}
+
+Man hat nun die Matrizen:
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.7\linewidth]{fig/Rotation_um_bel_Achse.png}
+	\caption{Rotationsmatrizen}
+	\label{fig:spatprodukt}
+\end{figure}
+
+Diese kann man als eine Transformation zusammennehmen durch Multiplikation:
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.7\linewidth]{fig/Zusammengesetzte_Rotationsmatrix.png}
+	\caption{Zusammengesetzte Rotationsmatrix}
+	\label{fig:spatprodukt}
+\end{figure}
+
+\newpage
 \section{Vektorprodukt}
 
 \begin{figure}[!ht]

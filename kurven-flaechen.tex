@@ -44,3 +44,178 @@ r*sin(2t)
 \end{pmatrix}
 \end{displaymath}
 beschreibt einen Kreis, wobei hier die \textit{Zeit} von 0 bis \(\pi\) geht - also er wird einfach 'schneller' durchlaufen.
+
+
+\section{Kurven im Raum}
+Dasselbe, einfach in grün. Eh 3D. Man hat einfach anstatt einen 2D Vektor in der Parameterdarstellung dann einen 3D Vektor.
+
+\subsection{Länge der Kurve im Raum}
+Das lässt sich ganz einfach mit einem Integral der ersten Ableitung der Kurve berechnen.
+
+\begin{displaymath}
+L = \int_a^b |f'(t)|,\mathrm{d}t
+\end{displaymath}
+
+\section{Kurvendarstellung}
+\subsection{Polynomiale Darstellung}
+Sagen wir, wir haben eine Ausgangskurve, die wir irgendwie im Computer effizient darstellen möchten. In der Abbildung \ref{fig:kurven_interpolieren} sind diese durch die gestrichelten Linien dargestellt. 
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.5\linewidth]{fig/kurven_interpolieren}
+	\caption{Möglichkeit der Darstellung von Kurven}
+	\label{fig:kurven_interpolieren}
+\end{figure}
+Nehmen wir die naive Variante und versuchen, die Kurve durch ein einfaches Polyom darzustellen, also irgendwas in der Form von:
+\begin{displaymath}
+f(x) = a_0 + a_1x + a_2x^2 + \dots + a_nx^n
+\end{displaymath}
+Leider nützt uns diese Variante nicht wirklich. Denn die durchgezogenen Linien zeigen, dass diese nie wirklich an die echte Kurve herankommt - mit mehr definierten Punkten wird es sogar noch schlimmer - siehe der rechte Teil der Grafik. Wir müssen also etwas besseres haben.
+
+\subsubsection{Beispielrechnung - Methode der unbestimmten Koeffizienten}
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.3\linewidth]{fig/unbestimmte_koeffizienten}
+	\caption{Beispiel Kurve}
+	\label{fig:unbestimmte_koeffizienten}
+\end{figure}
+
+Wir können also folgende Punkte aus der Kurve lesen: \((0,1)\), \((1,1)\), \((2,0)\), \((3,1)\). Wir können also für die Gleichung
+
+\begin{displaymath}
+f(x) = a_0 + a_1x + a_2x^2 + a_3x^3
+\end{displaymath}
+für den ersten Punkt \(x = 0, y = 1\) wäre die Gleichung also:
+
+\begin{displaymath}
+1 = a_0 + a_1*0 + a_2*0 + a_3*0 = a_0
+\end{displaymath}
+
+Wir können das auch in einer Matrix darstellen;
+
+\begin{displaymath}
+\begin{pmatrix}
+	1 & 0 & 0 & 0 \\
+	1 & 1 & 1 & 1 \\
+	1 & 2 & 4 & 8 \\
+	1 & 3 & 9 & 27\\
+\end{pmatrix}
+\begin{pmatrix}
+a_0 \\
+a_1 \\
+a_2 \\
+a_3
+\end{pmatrix}
+= 
+\begin{pmatrix}
+1 \\
+1 \\
+0 \\
+1
+\end{pmatrix}
+\end{displaymath}
+und lösen die dann auf mittels Maple oder so - weil von Hand ist ja uncool \& lahm.
+Nactheil an dieser Methode ist, dass es eben lahm ist, man muss wenn sich ein Punkt ändert immer das komplette Gleichungssystem wieder lösen. Die Lösung wäre auf jeden Fall:
+\begin{displaymath}
+f(x) = 1 + \frac{3}{2}x - 2x^2 + \frac{1}{2}x^3
+\end{displaymath}
+\subsubsection{Beispielrechnung - Methode nach Lagrange}
+Wollen wir keine Gleichungssysteme lösen, so lässt uns Lagrange von der Qual erlösen. Schlechter Reim - ist aber trotzdem so.
+
+Nehmen wir wieder wie Kurve aus Abbildung \ref{fig:unbestimmte_koeffizienten}. Wir haben wieder die bekannten Punkte, wobei der erste Punkt dann \(x_0 = 0\) und \(f(x_0) = 1\)  wäre usw.
+
+Wir definieren dann Gleichungen wie in Abbildung \ref{fig:lagrange_gleichungen}.
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.7\linewidth]{fig/lagrange_gleichungen}
+	\caption{Lagrange Gleichungen}
+	\label{fig:lagrange_gleichungen}
+\end{figure}
+Die Funktion \(L_0(x)\) hat dann die Eigenschaft, dass sie an der Stelle \(x_0 = 1\) ist und an allen anderen Stützstellen, also \(L_0(x_1) = L_0(x_2) = \dots = 0\)  ist. Die Funktion \(L_1(x)\) hat dieselbe Eigenschaft, einfach ist sie an der Stelle \(x_1 = 0\). Dasselbe für die weiteren Gleichungen. Jetzt können wir einfach unsere Gleichung aufstellen:
+
+\begin{displaymath}
+f(x) = L_0(x)f(x_0) + L_1(x)f(x_1) + L_2(x)f(x_2)+ L_3(x)f(x_3)
+\end{displaymath}
+Was dann auch schon die Lösung ist.
+
+Erklärung dazu; Mit den aufgestellten \(L_n\) Gleichungen können wir ja einfach die Stützstellen beliebig 'verschieben' - was wir zum Schluss mit den Faktoren \(f(x_0)\) auch machen. (Anmk. Autor - evt kann das jemand noch besser erklären, ich schreib jetzt einfach mal weiter im Text).
+\subsection{Methode nach Newton}
+Kommt wahrscheinlich nicht - war ja auch nicht in den Übungen vorhanden.
+\section{Approximierende Splines}
+Wir definieren einfach irgendwelche Punkte im Raum und bestimmen jeweils die Funktion zwischen den Punkten - diese ist eine Polynomiale Funktion max. 3 Grades. Die Kurve muss dann nicht durch die Punkte gehen.
+
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.3\linewidth]{fig/splines}
+	\caption{Splines}
+	\label{fig:splines}
+\end{figure}
+
+\subsection{Lineare Interpolation - Lineare Bézier Splines}
+Wir haben einfach eine Linie mit den Anfangs \(P_0\) und Endpunkten \(P_1\). Jetzt müssen wir diese wahnsinnig schwierig beschreiben. Hier ist immer \(t \leq t \leq 1\).
+\begin{enumerate}
+	\item \(P(t) = (1-t)P_0+t*P_1\)
+	\item \(P(t) = (P_1 - P_0)*t + P_0\)
+	\item \(P(t) = (P_1, P_0) \begin{pmatrix}
+	-1 & 1 \\1 & 0
+	\end{pmatrix}\begin{pmatrix}
+	t \\ 1
+	\end{pmatrix}\)
+\end{enumerate}
+\subsection{Quadratische Bézier Splines}
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.2\linewidth]{fig/quadratic_bezier_spline}
+	\caption{Quadratische Bézier Splines}
+	\label{fig:quadratic_bezier_spline}
+\end{figure}
+Quadratische Bézier Splines sind eigentlich dasselbe wie die linearen Bézier Splines - einfach wird zwischen den linearen Splines nochmals interpoliert - yo dawg I heard you like interpolieren. In der Abbildung \ref{fig:quadratic_bezier_spline} sieht man das schön. Grafisch kann man das dort auch super erklären - denn vom Punkt in der Mitte zwischen \(P_0\) und \(P_1\)  wird einfach eine Linie gezogen zum Punkt in der Mitte zwischen \(P_1\) und \(P_2\) und dann in der Mitte dieser Linie ist dann der mittlere Punkt der fertigen Kurve. Wir rechnen also die 2 linearen Repräsentationen der Linien zusammen und das geht so:
+
+Man hat zwei lineare Bézier Splines, die so definiert sind:
+\begin{displaymath}
+P^1_0(t) = (1-t)P_0 + t*P_1
+\end{displaymath}
+\begin{displaymath}
+P^1_1(t) = (1-t)P_1 + t*P_2
+\end{displaymath}
+
+Jetzt setzt man diese einfach in die normale Bézier Repräsentation ein - also eine Funktion in die Funktion einfügen.
+\begin{displaymath}
+P(t) = (1-t)P^1_0(t) = t*P^1_1(t)
+\end{displaymath}
+Dann muss mans nur noch auflösen et voila:
+\begin{displaymath}
+P(t) = (1-t)^2P_0 + 2(1-t)t*P_1+t^2P_2
+\end{displaymath}
+Das, meine Kinder, wäre der ganze Zauber. Tschüss \& bis zum nächsten Mal!
+
+\subsection{Kubische Bézier Splines}
+Hehe, jetzt dachtest Du schon du bist fertig. Aber es wird nicht schwieriger. Wir haben jetzt einfach 4 Kontrollpunkte (\(P_0, \dots P_3)\))statt 3, also haben wir alle Definitionen:
+\begin{displaymath}
+P^1_0(t) = (1-t)P_0 + t*P_1
+\end{displaymath}
+\begin{displaymath}
+P^1_1(t) = (1-t)P_1 + t*P_2
+\end{displaymath}
+\begin{displaymath}
+P^1_2(t) = (1-t)P_2 + t*P_3
+\end{displaymath}
+Jetzt müssen wir alle 4 Gleichungen zusammenfügen:
+\begin{displaymath}
+P^2_1(t) = (1-t)P^1_0(t) = t*P^1_1(t)
+\end{displaymath}
+\begin{displaymath}
+P^2_2(t) = (1-t)P^1_1(t) = t*P^1_2(t)
+\end{displaymath}
+Und diese dann nochmals in tha mix schmeissen:
+\begin{displaymath}
+P(t) = (1-t)P^2_1(t) = t*P^2_2(t)
+\end{displaymath}
+Was dann wieder aufgelöst:
+\begin{displaymath}
+P(t) = (1-t)^3P_0+3(1-t)^2*t*P_1+3(1-t)^2P_2+t^3P_3
+\end{displaymath}
+ergibt. Dem aufmerksamen Leser wird nicht entgangen sein, dass diese Bézier Splines Eigenschaften vom Pascal'schen Dreieck haben.
+
+\subsection{Bernsteinpolynome}
+Nicht aufgeben! Kurz ein Schluck Wasser und weiter gehts.
+

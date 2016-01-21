@@ -48,18 +48,26 @@ Nette Herren, die sich folgende Methode ausgedacht haben:
 		\item Links (0001)
 	\end{enumerate}
 	\item Ist der Code bei beiden Punkten \textit{0000}, so liegen ja beide Punkte im Clipping Fenster und die Linie wird akzeptiert und so gezeichnet.
-	\item Ansonsten wird Bit für Bit der Wert verglichen und geschaut, ob bei beiden der Wert 1 ist. Das heisst es wird das erste Bit genommen, dann das zweite usw. Eigentlich wird geschaut, ob beide Punkte links, rechts, oben oder unten des Rechtsecks sind. Denn wenn das der Fall ist, so geht die Linie nämlich sicher nicht durch das Clipping Fenster und die Linie kann abgelehnt werden.
+	\item Ansonsten wird Bit für Bit der Wert verglichen und geschaut, ob bei beiden der Wert 1 ist. Als Beispiel hat der einte Endpunkt den Code 1001 und der zweite Endpunkt den Code 0101. Wenn man die beiden Codes verunded kriegt man 0001. Es ist also ein Wert 1 und somit geht die Linie nicht durch das Clipping-Fenster. Eigentlich wird geschaut, ob beide Punkte links, rechts, oben oder unten des Rechtsecks sind. Denn wenn das der Fall ist, so geht die Linie nämlich sicher nicht durch das Clipping Fenster und die Linie kann abgelehnt werden.
 	\item Wenn die Linie aber durch das Vergleichen nicht abgelehnt werden konnte, so wird der Schnittpunkt mit einer beliebigen Seite des Clipping Fensters berechnet und die Linie so \textit{entzweigeschnitten}. Einen Teil der Linie kann dann verworfen werden, der andere Teil der Linie wird nochmals durch den Algorithmus gejagt, bis dann alles im Rechteck vorhanden ist.
 \end{enumerate}
 
 \section{Polygone Clippen}
 Das wird schon etwas aufwändiger. Wir haben hier einen Algorithmus von den Herren \textbf{Sutherland-Hodgeman}, der eigentlich nur für Geraden geht - aber da ein Rechteck ja eigentlich einfach aus 4 Geraden besteht, machen wir das Ganze einfach 4x - dann passts auch.
 
-Ein Polygon besteht ja aus n-Punkten. Wir gehen jetzt von einem Startpunkt aus und gehen dann von Punkt zu Punkt. Wir schauen dann jeweils einfach für den Startpunkt \textit{S} und den nächsten Punkt des Polygons \textit{P}, ob diese Punkte innerhalb oder ausserhalb des Polygons liegen. Dies wird für alle Punkte gemacht, das heisst jeder Punkt ist mal Startpunkt und jeder Punkt ist mal Endpunkt. Die Ausgabe des Algorithmus bestimmt dann, welcher Punkt behalten wird. Wenn die Punkte die Linien schneiden, wird einfach der Schnittpunkt dazu berechnet und entsprechend auch gespeichert.
+Ein Polygon besteht ja aus n-Punkten. Wir gehen jetzt von einem Startpunkt aus und gehen dann von Punkt zu Punkt. Wir schauen dann jeweils einfach für den Startpunkt \textit{S} und den nächsten Punkt des Polygons \textit{P}, ob diese Punkte innerhalb oder ausserhalb des Polygons liegen. Dies wird für alle Punkte gemacht, das heisst jeder Punkt ist mal Startpunkt und jeder Punkt ist mal Endpunkt. Die Ausgabe des Algorithmus bestimmt dann, welcher Punkt behalten wird. Wenn die Punkte die Linien schneiden, wird einfach der Schnittpunkt dazu berechnet und entsprechend auch gespeichert. Es wird immer nur eine Gerade angeschaut d.h. am Anfang sind auch Punkt drin die gar nicht im Polygon liegen.
 	
 \begin{figure}[!ht]
 	\centering
-	\includegraphics[width=0.5\linewidth]{fig/sutherland_hodgman}
-	\caption{Verschiedene Fälle für den Sutherland Hodgman Algorithmus}
+	\begin{subfigure}[b]{0.5\textwidth}
+			\includegraphics[width=\textwidth]{fig/sutherland_hodgman}
+			\caption{Verschiedene Fälle (S = Startpunkt)}
+	\end{subfigure}
+	~
+	\begin{subfigure}[b]{0.3\textwidth}
+		\includegraphics[width=\textwidth]{fig/clipping}
+		\caption{Beispiel}
+	\end{subfigure}
 	\label{fig:sutherland_hodgman}
+	\caption{Sutherland Hodgman Algorithmus}
 \end{figure}

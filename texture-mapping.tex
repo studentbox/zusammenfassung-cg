@@ -9,17 +9,23 @@ Der Pixel x,y vom Bild ist dann schlussendlich wo auf dem Objekt? Dsa macht man 
 \subsection{Kugel}
 Wenn wir eine Kugel haben, z.B. wie die Erde ja eine ist, dann können wir mit Längen und Breiten Angaben arbeiten. Das heisst, dass wir die Winkel \(\phi\) und \(\theta\) frei wählen können, mit der folgenden Formel kriegen wir dann alle möglichen Koordinaten der Kugel:
 
-\begin{gather}
-x = r*cos \theta * sin \phi\\
-y = r*sin \theta * cos \phi\\
-z = r*cos\phi
-\end{gather}
+\begin{displaymath}
+x = r\cdot cos \theta \cdot  sin \phi
+\end{displaymath}
+\begin{displaymath}
+y = r\cdot sin \theta \cdot  cos \phi
+\end{displaymath}
+\begin{displaymath}
+z = r\cdot cos\phi
+\end{displaymath}
 
 Das Mapping auf die Texturkoordinaten (u,v) geschieht dann mit diesen Formeln:
-\begin{gather}
-u = \frac{\theta}{2\pi}\\
-v = \frac{\phi}{2\pi}\\
-\end{gather}
+\begin{displaymath}
+u = \frac{\theta}{2\pi}
+\end{displaymath}
+\begin{displaymath}
+v = \frac{\phi}{2\pi}
+\end{displaymath}
 \subsection{Polygon}
 Wenn wir aber etwas anderes als eine Kugel haben, z.B. einen Dinosaurier den wir gern mit einer Textur überziehen möchten, so müssen wir für jedes Dreieck die entsprechenden Texturkoordinaten angeben. Die Fläche innerhalb des Dreiecks auf der Textur wird dann genommen und dann pro dargestelltem Pixel (also im Fragment Shader) interpoliert. Ein Ursprungspixel (auch \textit{Texel} genannt), kann dann auf mehrere Pixel oder auf weniger Pixel reduziert werden. Wenn es reduziert wird, so wird einfach der Farb-Durchschnitt genommen. Häufig werden diese Vergrösserungen usw. schon vorberechnet, dann muss man es nicht 10x machen.
 

@@ -514,8 +514,8 @@ Wir kennen das Verhältnis von der Gegenkatete zur Ankatete, nämlich:
 Eingesetzt können wir nun berechnen:
 \begin{align}
 \begin{split}
-\cos (2\delta) = \frac{1-\frac{2}{3}^2}{1+\frac{2}{3}^2} = \frac{1-\frac{4}{9}}{1+\frac{4}{9}} = \frac{\frac{5}{9}}{\frac{14}{9}} &= \frac{5}{14}\\
-\sin (2\delta) = \frac{2\frac{2}{3}}{1+\frac{2}{3}^2} = \frac{\frac{4}{3}}{1+\frac{4}{9}} = \frac{\frac{12}{9}}{\frac{14}{9}} = \frac{12}{14} &= \frac{6}{7}\\
+\cos (2\delta) = \frac{1-\frac{2}{3}^2}{1+\frac{2}{3}^2} = \frac{1-\frac{4}{9}}{1+\frac{4}{9}} = \frac{\frac{5}{9}}{\frac{13}{9}} &= \frac{5}{13}\\
+\sin (2\delta) = \frac{2\frac{2}{3}}{1+\frac{2}{3}^2} = \frac{\frac{4}{3}}{1+\frac{4}{9}} = \frac{\frac{12}{9}}{\frac{13}{9}} = \frac{12}{13} &= \frac{12}{13}\\
 \end{split}
 \end{align}
 
@@ -524,8 +524,8 @@ Nun muss man dies nur noch in die Spiegelungsmatrix einsetzen:
 \[
 \sigma' = 
 \begin{pmatrix}
-\frac{5}{14} & \frac{6}{7} & 0\\
-\frac{6}{7} & -\frac{5}{14} & 0\\
+\frac{5}{13} & \frac{12}{13} & 0\\
+\frac{12}{13} & -\frac{5}{13} & 0\\
 0 & 0 & 1
 \end{pmatrix}
 \]
@@ -535,8 +535,8 @@ Schliesslich kann man "da real"-Spiegelungsmatrix $\sigma$ folgendermassen berec
 \[
 \underline{\underline{\sigma = T^{-1}\sigma T = 
 \begin{pmatrix}
-\frac{5}{14} & \frac{6}{7} & -\frac{6}{14}\\
-\frac{6}{7} & -\frac{5}{14} & 1\\
+\frac{5}{13} & \frac{12}{13} & -\frac{8}{13}\\
+\frac{12}{13} & -\frac{5}{13} & \frac{12}{13}\\
 0 & 0 & 1
 \end{pmatrix}}}
 \]
@@ -557,18 +557,19 @@ Danach berechnet man $\sigma * Points$ und erhält das Resultat:
 
 \[
 ResultMatrix = \begin{pmatrix}
-0.78... & -23.61... \\
-1.5 & -55.12... \\
+3.38... & -25.58... \\
+7.92... & -59.52... \\
 1 & 1
-\end{pmatrix}, 
+\end{pmatrix}\textnormal{, } 
 \underline{\underline{A' = 
 \begin{pmatrix}
-0.78...\\
-1.5 
-\end{pmatrix}, B' = 
+3.38...\\
+7.92... 
+\end{pmatrix}\textnormal{, } 
+B' = 
 \begin{pmatrix}
--23.61... \\
-55.12... 
+-25.58... \\
+-59.52... 
 \end{pmatrix}}}
 \]
 

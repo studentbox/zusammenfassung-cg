@@ -1,13 +1,13 @@
 \chapter{Radiosity}
 Wir verwenden ein globales Beleuchtungsmodell für die korrekte diffuse Beleuchtung. Wichtig so für Architektur oder Industriedesign - da sollte es irgendwie realistisch aussehen. Das ganze nennt sich auch \textit{Global Illumination}. Man unterscheidet hier nicht zwischen Leuchtquellen und beleuchteten Flächen - weil diese ja auch wieder reflektieren. Es ist also eigentlich ein geschlossenes System aus Sicht der Energieerhaltung. Im Gegensatz zu Raytracing wird hier das gesamte Modell schon einmal vorberechnet und beleuchtet, sodass der Betrachtungsstandort dann schlussendlich egal ist.
 \section{Detailkonzept}
-Wir haben ja verschiedene Objekte. Wir unterteilen jetzt diese Oberflächen in \textit{Patches}. Ein Patch hat immer dieselbe Lichtintensität - ist also im Prinzip ein 'Licht-Pixel' irgendwie. Der Leuchtet dann auf andere Patches und andere Patches leuchten auf ihn. Das Ganze modellieren wir mit Hilfe von linearen Gleichungen. Da wir diese Gleichungen nie im Detail angeschaut haben, werde ich sie hier mal nicht aufführen. Wir könnten Gleichungssysteme aber mit diesen Verfahren lösen:
+Wir haben ja verschiedene Objekte in einer Szene. Wir unterteilen jetzt die Oberflächen dieser Objekte in \textit{Patches}. Ein Patch hat immer dieselbe Lichtintensität - ist also im Prinzip ein 'Licht-Pixel' irgendwie. Der Leuchtet dann auf andere Patches und andere Patches leuchten auf ihn. Das Ganze modellieren wir mit Hilfe von linearen Gleichungen. Da wir diese Gleichungen nie im Detail angeschaut haben, werde ich sie hier mal nicht aufführen. Wir könnten Gleichungssysteme aber mit diesen Verfahren lösen:
 \begin{enumerate}
 	\item Jacobi Iteration
 	\item Gauss Seidel Relaxation
 	\item Southwell Iteration
 \end{enumerate}
-Ist aber grundsätzlich sehr Aufwändig so ein Global Illumination Modell zu berechnen. Vorallem der Austausch zwischen den Patches, der sog. \textit{Formfaktor} ist am schwierigsten, z.B. hat er ein Doppelintegral und alles. Zudem muss zwischen jedem Patch berechnet werden, ob sie überhaupt untereinander sichtbar sind, wie viel Licht da ausgetaucht wird (Winkel usw), ... Deswegen nimmt man dort häufig geometrische Approximationen vom Ganzen, also z.B. mit Halbkugeln oder würfeln.
+Ist aber grundsätzlich sehr Aufwändig so ein Global Illumination Modell zu berechnen. Vorallem der Austausch zwischen den Patches, der sog. \textit{Formfaktor} ist am schwierigsten, z.B. hat er ein Doppelintegral und alles. Zudem muss zwischen jedem Patch berechnet werden, ob sie überhaupt untereinander sichtbar sind, wie viel Licht da ausgetaucht wird (Winkel usw), ... Deswegen nimmt man dort häufig geometrische Approximationen vom Ganzen, also z.B. mit Halbkugeln oder Würfel.
 
 \section{Optimierungen}	
 \subsection{Progressive Radiosity}

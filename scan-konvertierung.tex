@@ -17,7 +17,7 @@ Pro Spalte haben wir ja immer nur 1 Pixel gesetzt hier, d.h wir müssen jeweils 
 
 
 \subsection{Digital Differential Analyzer}
-Beim Digital Differential Analyzer (DDA) berechnen wir zuerst den genauen Y-Wert, ganz nach der Formel \(y(x)=mx+b\). Dann runden wir dies auf die nächste ganze Zahl und haben den Wert, welcher Pixel gezeichnet werden soll. Das machen wir für jede Spalte - ist also entsprechend aufwändig zu berechnen, da für jeden Pixel eine Multiplikation gemacht werden muss. Besser wäre es, ausgehend vom Startpixel zu rechnen - denn in der Formel erhöht sich x ja immer um 1, das heisst es wird einfach immer \(+ m\) ausgegeben. Wir haben dann also:
+Beim Digital Differential Analyzer (DDA) berechnen wir zuerst den genauen Y-Wert, ganz nach der Formel \(y(x)=mx+b\). Dann runden wir dies auf die nächste ganze Zahl und haben den Wert, welcher Pixel gezeichnet werden soll. Das machen wir für jede Spalte - ist also entsprechend aufwändig zu berechnen, da für jeden Pixel eine Multiplikation gemacht werden muss. Besser wäre es, ausgehend vom Startpixel zu rechnen -- denn in der Formel erhöht sich x ja immer um 1, das heisst es wird einfach immer \(+ m\) ausgegeben. Wir haben dann also:
 \begin{displaymath}
 y_{i+i}=y_i+m
 \end{displaymath}
@@ -47,7 +47,7 @@ Wenn man es implementiert, hat man üblicherweise 2 Punkte - also \((x_0,y_0)\) 
 	\label{fig:mittelpunktschema_algo}
 \end{figure}
 \section{Mittelpunktschema - Kreise}
-Dasselbe wie für Linien. Zudem können wir sagen, wenn wir ja \((x,y)\) berechnet haben, haben wir auch \((x,-y)\),\((-x,y)\),\((-x,-y)\), \((y,x)\), \((-y,x)\), \((y,-x)\) und \((-y,-x)\) - also alle möglichen Kombinationen von +, -, x und y. Die mathematisch korrekte Formel für die Kreise wäre (r = Radius):
+Dasselbe wie für Linien. Zudem können wir sagen, wenn wir ja \((x,y)\) berechnet haben, haben wir auch \((x,-y)\),\((-x,y)\),\((-x,-y)\), \((y,x)\), \((-y,x)\), \((y,-x)\) und \((-y,-x)\) -- also alle möglichen Kombinationen von +, -, x und y. Die mathematisch korrekte Formel für die Kreise wäre (r = Radius):
 \begin{displaymath}
 F(x,x) = x^2 + y^2 - r^2
 \end{displaymath}

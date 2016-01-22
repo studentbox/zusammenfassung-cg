@@ -9,14 +9,14 @@ Raytracing erzeugt fotorealistische Bilder, indem es Spiegelung und Transparenz 
 \end{figure}
 
 \section{Rekursives Raytracing}
-Mit dem ersten Strahl auf das Objekt ist noch nicht viel Realität in den PC geholt worden. Erst mit dem rekursiven Raytracing kommt das (Siehe Abbildung \label{fig:raytracing_rekursiv}).
+Mit dem ersten Strahl auf das Objekt ist noch nicht viel Realität in den PC geholt worden. Erst mit dem rekursiven Raytracing kommt das (Siehe Abbildung \ref{fig:raytracing_rekursiv}).
 \begin{figure}[!ht]
 	\centering
 	\includegraphics[width=0.8\linewidth]{fig/raytracing_rekursiv}
 	\caption{Rekursives Raytracing}
 	\label{fig:raytracing_rekursiv}
 \end{figure}\\
-Wir haben also den ersten Strahl vom Betrachter aus - unseren \textit{Primärstrahl}. Dieser geht vom Betrachter direkt auf den betrachteten Pixel. Von dort aus machen wir weitere Strahlen - einmal ein Reflexionsstrahl, der ähnlich wie der Primärstrahl einfach das nächste Objekt sucht und schaut, was dort für eine Farbe ist und diese dann dem ersten Punkt hinzufügt. Dann gibt es noch die Schattenstrahlen, die von der Lichtquelle aus berechnen, wie sehr diese jetzt den Punkt beleuchten. Dann gibt es no den Transmissionsstrahl, der durch das Objekt hindurch geht, und die Farbe holt, die am anderen Ende des Objekts ist. Wir haben also:
+Wir haben also den ersten Strahl vom Betrachter aus - unseren \textit{Primärstrahl}. Dieser geht vom Betrachter direkt auf den betrachteten Pixel. Von dort aus machen wir weitere Strahlen - einmal ein Reflexionsstrahl, der ähnlich wie der Primärstrahl einfach das nächste Objekt sucht und schaut, was dort für eine Farbe ist und diese dann dem ersten Punkt hinzufügt. Dann gibt es noch die Schattenstrahlen, die von der Lichtquelle aus berechnen, wie sehr diese jetzt den Punkt beleuchten. Dann gibt es den Transmissionsstrahl, der durch das Objekt hindurch geht, und die Farbe holt, die am anderen Ende des Objekts ist. Wir haben also:
 \begin{enumerate}
 	\item \textbf{Primärstrahl} - Der erste Strahl vom Betrachter zum Objekt
 	\item \textbf{Schattenstrahl} - Der Strahl vom betracheten Punkt zur Lichtquelle

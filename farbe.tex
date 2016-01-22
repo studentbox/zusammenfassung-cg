@@ -34,7 +34,7 @@ Längeneinheit: 1nm = 10Å (Angström). Ein Atom hat etwa den Durchmesser von 1�
 
 \section{Farbwahrnehmung}
 Wir nehmen Farben anders wahr als sie z.B. durch ihre physikalischen Eigenschaften definiert sind.\\
-\textbf{Tristimulustheorie:} Auf der Netzhaut befinden sich 3 Arten von Zellen (Zäpfchen) , die auf Licht reagieren. Ihre höchste Empfindlichkeit liegt bei \textbf{rot, grün und blau}. Stäbchen und Zäpfchen bestimmen Auflösungsvermögen und Farbempfindlichkeit des Auges.
+\textbf{Tristimulustheorie:} Auf der Netzhaut befinden sich 3 Arten von Zellen (Zäpfchen), die auf Licht reagieren. Ihre höchste Empfindlichkeit liegt bei \textbf{rot, grün und blau}. Stäbchen und Zäpfchen bestimmen Auflösungsvermögen und Farbempfindlichkeit des Auges.
 \begin{description}[labelindent=1cm]
   \item[Stäbchen $(75-150 \times 10^6)$] ermöglichen das Sehen bei niedriger Intensität. Nur Schwarz/Weiss-Sehen.
   
@@ -51,7 +51,7 @@ Wir nehmen Farben anders wahr als sie z.B. durch ihre physikalischen Eigenschaft
 \end{itemize}
 \noindent
 \textbf{WICHTIG:}\\Es ist also NICHT möglich jede Farbe mit rot, grün und blau zu mischen. Jedoch ein sehr grosser Anteil.
-Das Tristimulustheorie-Experiment zeigte, dass die Kurven der Wellenlängen auch negativ sein können. D.h. man müsste Farben auch subtrahieren - was nicht geht. Beim Tristimulus hatten die Versuchspersonen drei Regler um die Farben Rot, Grün und Blau zu mischen. Der Versuchsleiter hatte einen Regler um durch sämtliche Spektralfarben zu gehen. Der Versuchsleiter stellte also eine Farbe ein und die Probanden mussten mit ihren drei Reglern versuchen, diese Farbe zu erreichen.
+Das Tristimulustheorie-Experiment zeigte, dass die Kurven der Wellenlängen auch negativ sein können. D.h. man müsste Farben auch subtrahieren - was nicht geht. Beim Tristimulus-Experiment hatten die Versuchspersonen drei Regler um die Farben Rot, Grün und Blau zu mischen. Der Versuchsleiter hatte einen Regler um durch sämtliche Spektralfarben zu gehen. Der Versuchsleiter stellte also eine Farbe ein und die Probanden mussten mit ihren drei Reglern versuchen, diese Farbe zu erreichen. Dies gelang nicht für alle Farben.
 
 \clearpage
 \section{Farbsysteme}
@@ -100,8 +100,7 @@ oder intuitive Farbsysteme wie
 
 
 \subsection{RGB} 
-Ist ein additives Farbsystem. Eine Farbe wird durch 3 Grundfarben rot (R), grün (G) und blau (B) dargestellt. \\
-C = (R, G, B)\\
+Ist ein additives Farbsystem. Eine Farbe wird durch 3 Grundfarben rot (R), grün (G) und blau (B) dargestellt C = (R, G, B).
 Wertebereich für RGB ist das Intervall [0\dots1]. Dies kann allerdings auf 8bit (1 Byte) (0\dots255), 12bit oder 16bit abgebildet werden. Damit sind 16 Mio. Farben möglich.
 \begin{figure}[!ht]
 \centering
@@ -236,7 +235,7 @@ Berechnen des Mittelwert einer n x n Region und ersetzen der Region durch die Di
 
 
 \subsubsection{Dispersed dot dithering} 
-Vergleich der einzelnen Pixel mit den Werten der Dithermatrix
+Vergleich der einzelnen Pixel mit den Werten der Dithermatrix.
 Verwendet wird wieder eine n x n Matrix \(D_{ij}^{(n)}\). Für jeden Punkt wird
 \begin{gather*}
 i = x \mod n\\
@@ -257,9 +256,7 @@ Dieser Algorithmus wird Allgemein zur Reduktion der Graustufen/Farben verwendet,
 
 
 \subsubsection{Dispersed Dot Dithering Quiz-Übung}
-Ein Bild ist in den Grauwerten von 0-255 gegeben und soll auf einem Bildschirm dargestellt werden der nur 2 Farben zur Verfügung hat. Die Grösse sollte dabei nicht verändert werden. Geben Sie eine gesetzten Pixel mit 1, ungesetzten mit 0 an.
-
-Man nehme die Ausgangstabelle:
+Ein Bild ist in den Grauwerten von 0-255 gegeben und soll auf einem Bildschirm dargestellt werden der nur 2 Farben zur Verfügung hat. Die Grösse sollte dabei nicht verändert werden. Geben Sie eine gesetzten Pixel mit 1, ungesetzten mit 0 an. Man nehme die Ausgangstabelle:
 
 \begin{table}[!ht]
 	\centering

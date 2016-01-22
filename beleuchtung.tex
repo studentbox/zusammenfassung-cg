@@ -23,11 +23,11 @@ Die Intensität des Lichts ist abhängig vom Winkel, in dem es auftrifft - ist z
 
 Formal ausgedrückt ist die Energie einer beleuchteten Fläche proportional zum Cosinus zwischen Lichtrichtung und Flächennormalen.
 \begin{displaymath}
-I_d = I_L * k_d * cos \phi
+I_d = I_L \cdot  k_d \cdot  cos \phi
 \end{displaymath}
 wobei 
 \begin{displaymath}
-cos \phi = \vec{N}*\vec{L}
+cos \phi = \vec{N}\cdot \vec{L}
 \end{displaymath}
 
 \begin{description}
@@ -50,7 +50,7 @@ Siehe Abbildung \ref{fig:phong} - wir haben eine Fläche eines Objekts. Diese ha
 
 Deswegen können wir folgende Formel aufstellen - die jetzt hoffentlich etwas verständlich ist:
 \begin{displaymath}
-I_s = I_L*k_s*cos^{n_s}\theta
+I_s = I_L\cdot k_s\cdot cos^{n_s}\theta
 \end{displaymath}
 
 \begin{description}
@@ -71,12 +71,12 @@ I_s = I_L*k_s*cos^{n_s}\theta
 Wir haben 2 Vektoren, den Vektor vom einfallenden Licht \(L\) und der Normalenvektor der Fläche \(N\). Ganz wichtig ist es hierbei, dass beide Vektoren \textit{normalisiert} sind, d.h. dass deren Länge (oder Betrag) = 1 ist, sonst funktioniert die folgende Formel nicht und man rechnet mal eine halbe Stunde herum, jaja. Der Reflektionsvektor ist hier dann \(R\).
 
 \begin{displaymath}
-R = 2*N(N*L) - L
+R = 2\cdot N(N\cdot L) - L
 \end{displaymath}
 
-Die \(*\) bedeuten einfach das Skalarprodukt. Jetzt muss man nur noch den Winkel zwischen dem Vektor \(R\), und dem Vektor der Betrachtung \(V\) herausfinden. Auch hier: beide müssen die Länge 1 haben.
+Die \(\cdot \) bedeuten einfach das Skalarprodukt. Jetzt muss man nur noch den Winkel zwischen dem Vektor \(R\), und dem Vektor der Betrachtung \(V\) herausfinden. Auch hier: beide müssen die Länge 1 haben.
 \begin{displaymath}
-cos^{-1}(V*R)
+cos^{-1}(V\cdot R)
 \end{displaymath}
 
 Sehr simpel. Um Vektoren übrigens zu normalisieren macht man das:

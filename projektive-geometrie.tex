@@ -1,5 +1,55 @@
 \chapter{Projektive Geometrie}
 \section{Hessesche Normalform}
+\subsection{der Gerade}
+Die Gleichung \begin{displaymath} \frac{Ax + By + C}{\sqrt{A^{2} + B^{2}}} = 0 \end{displaymath} heisst hessische Normalform der \textbf{Gerade}. \\
+Wird die Gleichung erfüllt, liegt der Punkt auf der Geraden, andernfalls resultiert der Abstand  zur Geraden (inkl. auf welcher Seite).
+\subsubsection{Definition}
+Die Gleichung wird genau von den Punkten erfüllt, die auf der Geraden (welche die Gleichung beschreibt)
+liegen. Liegt der Punkt nicht auf der Geraden, so liefert die Hesse’sche Normalenform den Abstand vom Punkt
+zur Geraden. Das Vorzeichen gibt an, ob der Punkt auf der Seite der Geraden liegt, in deren Richtung der
+Normalenvektor zeigt, oder ob er auf der anderen Seite der Geraden liegt.
+
+\subsubsection{Beispiel Geradengleichung}
+Wir betrachten die Geradengleichung \begin{displaymath} 3x + y - 5 = 0 \end{displaymath} und bestimmen die HN:
+\begin{displaymath} \frac{3x+y-5}{\sqrt{3^{2} + 1^{2}}} \text{ resp. } \frac{3x+y-5}{\sqrt{10}} \end{displaymath}
+Wir testen die folgenden Punkte \begin{displaymath}S(3;-4)\\T(2; -5)\\ U(2; 5) \end{displaymath}
+Der Punkt \(S\) in die HN eingesetzt ergibt: \begin{displaymath} \frac{3\cdot3 + (-4) -5}{\sqrt{10}} = \frac{9-9}{\sqrt{10}} = 0 \end{displaymath}, somit liegt \(S\) auf der Geraden.\\
+Der Punkt \(T\) in die HN eingesetzt ergibt: \begin{displaymath}\frac{3\cdot2 + (-5) -5}{\sqrt{10}} = \frac{6-10}{\sqrt{10}} = -1.265 \end{displaymath}, somit liegt \(T\) nicht auf der Geraden. Der Punkt \(T\) hat einen Abstand von 1,256 LE von der Gerade und liegt dem Normalenvektor entgegengesetzt. \\
+Der Punkt \(U\) in die HN eingesetzt ergibt: \begin{displaymath} \frac{3\cdot2 +5-5}{\sqrt{10}} = \frac{6}{\sqrt{10}} = 1.897 \end{displaymath}, somit liegt \(U\) nicht auf der Geraden. Der Punkt \(U\) hat einen Abstand von 1,897 LE von der Gerade und liegt auf der „positiven“ Seite der Geraden.
+\subsection{zur Ebene}
+Die Gleichung \begin{displaymath} \frac{Ax + By + Cz + D}{\sqrt{A^{2} + B^{2} + C^{2}}} = 0 \end{displaymath} heisst hessische Normalform der \textbf{Ebene}.
+\subsubsection{Definition}
+\begin{itemize}
+    \item Ergibt das Einsetzten eines Punktes in der HN \(= 0\), so liegt der Punkt in der Ebene.
+    \item Ergibt das Einsetzten eines Punktes in der HN \(d > 0\), so liegt der Punkt auf der gleichen Seite des Normalenvektors \( \vec{n_{E}}= \begin{pmatrix} A \\ B \\ C \end{pmatrix} \) mit Abstand \(d\) zur Ebene. 
+    \item Ergibt das Einsetzten eines Punktes in der HN \(d < 0\), so liegt der Punkt auf der entgegengesetzten Seite des Normalenvektors \(\vec{n_{E}} = \begin{pmatrix} A \\ B \\ C \end{pmatrix} \) mit Abstand \(|d|\) zur Ebene.
+\end{itemize}
+\subsubsection{Beispiel}
+Gegeben ist die Koordinatengleichung der Ebene E: \(x - 4 \cdot y + 2 \cdot z + 9 = 0 \)\\
+Gesucht der Abstand der Punkte \(Q(3; -1; -4)\text{, }R(5; 6; -7) \text{ und } S(3; 7; 8)\) zur Ebene.
+\begin{description} 
+    \item[1. Schritt: Bestimmen der HN der Ebene]
+    \begin{displaymath}
+    \text{HN: } \frac{Ax + By + Cz + D}{\sqrt{A^{2} + B^{2} + C^{2}}} = \frac{x - 4\cdot y + 2 \cdot z + 9}{\sqrt{1^{2} + (-4)^{2} + 2^{2}}} = \frac{x - 4 \cdot y + 2 \cdot z + 9}{\sqrt{21}} = 0
+    \end{displaymath}
+    \item[2. Schritt: Einsetzten der Punkte:]
+    \(\text{ }\\ Q(3; -1; -4): \)
+    \begin{displaymath}
+   \frac{x - 4 \cdot y + 2 \cdot z + 9}{\sqrt{21}} = \frac{3 - 4 \cdot (-1) + 2 \cdot (-4) + 9}{\sqrt{21}} = \frac{8}{\sqrt{21}} = 1.746
+   \end{displaymath}
+   Der Punkt liegt also dem Normalenvektor \( \vec{n_{E}} = \begin{pmatrix} 1 \\ -4 \\ 2 \end{pmatrix} \) gleich gesetzten Seite der Ebene mit dem Abstand 1.746 LE zur Ebene.\\
+    \(\text{ }\\R(5; 6; -7):\\ \)
+    \begin{displaymath}
+    \frac{5 - 4 \cdot 6 + 2 \cdot (-7) + 9}{\sqrt{21}} = \frac{-24}{\sqrt{21}} = -5.237
+    \end{displaymath}
+    Der Punkt liegt also dem Normalenvektor \( \vec{n_{E}} \) entgegengesetzte Seite der Ebene mit dem Abstand 5.237 LE zur Ebene.\\
+    \(\text{ }\\S(3; 7; 8): \\ \)
+    \begin{displaymath}
+    \frac{3 - 4 \cdot 7 + 2 \cdot 8 + 9}{\sqrt{21}} = \frac{0}{\sqrt{21}} = 0\\
+   \end{displaymath}
+   Der Punkt liegt auf der Ebene (es ist ja auch unser ursprünglicher Punkt C.)
+\end{description}
+
 
 \section{Skalare und Vektoren und das Kartesisches Koordinatensystem}
 
@@ -133,16 +183,16 @@ sowohl grafisch wie auch rechnerisch (analytisch). Details der Vektoren sind in 
 \begin{description}
 	\item[Basisvektoren:]
 	Die Basisvektoren $\vec{e}_x$ und $\vec{e}_y$ sind orthogonal und haben die Länge 1,\\
-	d.h. $\vec{e}_x \bullet \vec{e}_x = 0$ und $\mid \vec{e}_x \mid = 1$ sowie $\mid \vec{e}_y \mid = 1$.
+	d.h. $\vec{e}_x \cdot \vec{e}_x = 0$ und $\mid \vec{e}_x \mid = 1$ sowie $\mid \vec{e}_y \mid = 1$.
 \end{description}
 
 \section{Skalarprodukt}
 
 Das Skalarprodukt zweier Vektoren $\vec{a}$ und $\vec{b}$ ist wie folgt definiert:\\
-$\vec{a} \bullet \vec{b} = \mid \vec{a} \mid \dot \mid \vec{b} \mid cos(\phi)$\\
+$\vec{a} \cdot \vec{b} = \mid \vec{a} \mid \dot \mid \vec{b} \mid cos(\phi)$\\
 In kartesischen Koordinaten gilt:\\
-$\vec{a} \bullet \vec{b} =
-\begin{pmatrix} a_{1} \\ a_{2} \end{pmatrix} \bullet
+$\vec{a} \cdot \vec{b} =
+\begin{pmatrix} a_{1} \\ a_{2} \end{pmatrix} \cdot
 \begin{pmatrix} b_{1} \\ b_{2} \end{pmatrix} =
 a_{1} b_{1} + a_{2} b_{2}$
 
@@ -154,7 +204,7 @@ $\vec{b} = \begin{pmatrix} -1 \\ 4 \end{pmatrix}$
 man berechne nun das Skalarprodukt sowie den Winkel $\phi$.\\
 
 \begin{math}
-	\vec{a} \bullet \vec{b} = 
+	\vec{a} \cdot \vec{b} = 
 	\begin{pmatrix} 4 \\ -2 \end{pmatrix} + 
 	\begin{pmatrix} -1 \\ 4 \end{pmatrix} =
 	4 (-2) + (-1) 4 = -4 -8 = -12
@@ -176,7 +226,7 @@ man berechne nun das Skalarprodukt sowie den Winkel $\phi$.\\
 
 \begin{math}
 	cos(\phi) =
-	\frac{\vec{a} \bullet \vec{b}}{\mid \vec{a} \mid \dot \mid \vec{b} \mid} = 
+	\frac{\vec{a} \cdot \vec{b}}{\mid \vec{a} \mid \dot \mid \vec{b} \mid} = 
 	\frac{-12}{\sqrt{20} \sqrt{17}} = 
 	-0.6508
 \end{math}
@@ -189,19 +239,19 @@ man berechne nun das Skalarprodukt sowie den Winkel $\phi$.\\
 \begin{description}
 	\item[Rechengesetze]
 \end{description}
-$\vec{a} \bullet \vec{b} = \vec{b} \bullet \vec{a}$ Kommutativgesetz\\
-$\vec{a} \bullet (\vec{b} + \vec{c}) = 
-\vec{a} \bullet \vec{b} + \vec{a} \bullet \vec{c}$
+$\vec{a} \cdot \vec{b} = \vec{b} \cdot \vec{a}$ Kommutativgesetz\\
+$\vec{a} \cdot (\vec{b} + \vec{c}) = 
+\vec{a} \cdot \vec{b} + \vec{a} \cdot \vec{c}$
 Distributivgesetz\\
-$\lambda (\vec{a} \bullet \vec{b}) = 
-(\lambda \vec{a}) \bullet \vec{b} = 
-\vec{a} \bullet (\lambda \vec{b})$
+$\lambda (\vec{a} \cdot \vec{b}) = 
+(\lambda \vec{a}) \cdot \vec{b} = 
+\vec{a} \cdot (\lambda \vec{b})$
 
 \begin{description}
 	\item[Orthogonale Vektoren]
 	Zwei Vektoren $\vec{a}$ und $\vec{b}$ stehen genau dann senkrecht aufeinander, sind also orthogonal, falls ihr Skalarprodukt verschwindet respektive 0 ist.\\
 	\begin{math}
-		\vec{a} \bullet \vec{b} = 0 \iff \vec{a} \perp \vec{b}
+		\vec{a} \cdot \vec{b} = 0 \iff \vec{a} \perp \vec{b}
 	\end{math}
 	\\Angenommen ein der Vektor $\vec{a} = \begin{pmatrix} 2 \\ 1 \end{pmatrix}$ sei gegeben. Um einen dazugehörenden orthogonalen Vektor zu erhalten muss folgende Formel aufgelöst werden:\\
 	\begin{math}
@@ -211,7 +261,7 @@ $\lambda (\vec{a} \bullet \vec{b}) =
 \end{description}
 \section{Spatprodukt}
 
-Das Spatprodukt $[\vec{a}, \vec{b}, \vec{c}]$ der drei Vektoren $\vec{a}$, $\vec{b}$ und $\vec{c}$ ist das Skalar $[\vec{a}, \vec{b}, \vec{c}] = \vec{a} \bullet (\vec{b} \times \vec{c})$.
+Das Spatprodukt $[\vec{a}, \vec{b}, \vec{c}]$ der drei Vektoren $\vec{a}$, $\vec{b}$ und $\vec{c}$ ist das Skalar $[\vec{a}, \vec{b}, \vec{c}] = \vec{a} \cdot (\vec{b} \times \vec{c})$.
 Der Betrag des Spatprodukts $\mid [\vec{a}, \vec{b}, \vec{c}] \mid$ ist das Volumen des durch die drei Vektoren $\vec{a}$, $\vec{b}$ und $\vec{c}$ aufgespannten Spats.
 
 \begin{figure}[!ht]
@@ -267,14 +317,14 @@ $T=\begin{pmatrix}
 0 & 0 & 1
 \end{pmatrix}$
 
-Nun muss man nur noch $T * M$ berechnen:
+Nun muss man nur noch $T \cdot  M$ berechnen:
 \begin{align}
 \begin{split}
-T*Points &=\begin{pmatrix}
+T\cdot Points &=\begin{pmatrix}
 1 & 0 & 1\\
 0 & 1 & 2\\
 0 & 0 & 1
-\end{pmatrix} * \begin{pmatrix}
+\end{pmatrix} \cdot  \begin{pmatrix}
 3 & 6 & 5\\
 1 & 1 & 4\\
 1 & 1 & 1

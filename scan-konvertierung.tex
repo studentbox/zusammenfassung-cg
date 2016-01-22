@@ -32,15 +32,13 @@ Die Distanz von einem Punkt \((x,y)\) zu dieser Linie wäre dann: (MEP?)
 \begin{displaymath}
 d = \frac{|ax+by+c|}{\sqrt{a^2+b^2}}
 \end{displaymath}
-Das heisst für alle x,y Werte ergibt die Gleichung 0 wenn sie auf der Linie sind - klar.
-
-Nehmen wir jetzt zusätzlich noch an, dass die Linie steigt, und zwar nicht stärker als 1. Wenn wir wieder Spalte für Spalte anschauen, kann es also nur sein, dass der nächste gezeichnete Pixel der direkt rechts vom jetzigen ist, oder dann der rechts schräg oben. Um dann zu entscheiden, welcher Punkt jetzt gezeichnet wird, setzen wir einen Punkt zwischen die beiden möglichen Pixel und setzen den in die Gleichung ein. Wenn diese etwas positives zurückliefert, dann ist die Linie oberhalb des Mittelpunktes und wir setzen den Pixel oben rechts. Ansonsten setzen wir ihn einfach rechts. In der Beispielgrafik \ref{fig:mittelpunktschema} bedeutet \textit{E} east, also rechts und \textit{NE} north east - oben rechts.\\
+Das heisst für alle x,y Werte ergibt die Gleichung 0 wenn sie auf der Linie sind - klar.\\Nehmen wir jetzt zusätzlich noch an, dass die Linie steigt, und zwar nicht stärker als 1. Wenn wir wieder Spalte für Spalte anschauen, kann es also nur sein, dass der nächste gezeichnete Pixel der direkt rechts vom jetzigen ist, oder dann der rechts schräg oben. Um dann zu entscheiden, welcher Punkt jetzt gezeichnet wird, setzen wir einen Punkt zwischen die beiden möglichen Pixel und setzen den in die Gleichung ein. Wenn diese etwas positives zurückliefert, dann ist die Linie oberhalb des Mittelpunktes und wir setzen den Pixel oben rechts. Ansonsten setzen wir ihn einfach rechts. In der Beispielgrafik \ref{fig:mittelpunktschema} bedeutet \textit{E} east, also rechts und \textit{NE} north east - oben rechts.
 \begin{figure}[!ht]
 	\centering
 	\includegraphics[width=0.4\linewidth]{fig/mittelpunktschema}
 	\caption{Mittelpunktschema Grafik}
 	\label{fig:mittelpunktschema}
-\end{figure}
+\end{figure}\\
 Wenn man es implementiert, hat man üblicherweise 2 Punkte - also \((x_0,y_0)\) und \((x_1,y_1)\). Dann gilt es nur noch, diese Werte in den untenstehenden Algorithmus einzufügen und los gehts.
 \begin{figure}[!ht]
 	\centering
@@ -88,7 +86,7 @@ Hier verwendet man den Scanlinien Algorithmus. Das heisst, wir gehen wie bei ein
 	\caption{Scanlinien Algorithmus Grafik}
 	\label{scanlinie}
 \end{figure}
-Damit wir wissen, von wo nach wo die Pixel gezeichnt werden sollen, müssen wir ja die Schnittpunkte der Kanten berechnen, welche die aktuelle Scanlinie schneiden. Damit das effizient geschieht, sind sie bereits vorsortiert in Kantentabellen:
+Damit wir wissen, von wo nach wo die Pixel gezeichnet werden sollen, müssen wir ja die Schnittpunkte der Kanten berechnen, welche die aktuelle Scanlinie schneiden. Damit das effizient geschieht, sind sie bereits vorsortiert in Kantentabellen:
 \begin{enumerate}
 	\item \textbf{Kantentabelle \textit{edgetable}}\\
 	Alle Kanten des Polygons sind nach minimaler y Koordinate \(y_{min}\) sortiert. Wenn zwei Kanten denselben \(y_{min}\) haben, werden sie nach x sortiert.

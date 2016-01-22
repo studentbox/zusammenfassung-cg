@@ -31,16 +31,16 @@ x_1(t) \\
 x_2(t)
 \end{pmatrix} = 
 \begin{pmatrix}
-r*cos(t)\\
-r*sin(t)
+r\cdot cos(t)\\
+r\cdot sin(t)
 \end{pmatrix}
 \end{displaymath}
 Die Parameterdarstellung ist nicht unbedingt eindeutig, also auch z.B. 
 \begin{displaymath}
 X(t) = 
 \begin{pmatrix}
-r*cos(2t)\\
-r*sin(2t)
+r\cdot cos(2t)\\
+r\cdot sin(2t)
 \end{pmatrix}
 \end{displaymath}
 beschreibt einen Kreis, wobei hier die \textit{Zeit} von 0 bis \(\pi\) geht - also er wird einfach 'schneller' durchlaufen.
@@ -87,7 +87,7 @@ f(x) = a_0 + a_1x + a_2x^2 + a_3x^3
 für den ersten Punkt \(x = 0, y = 1\) wäre die Gleichung also:
 
 \begin{displaymath}
-1 = a_0 + a_1*0 + a_2*0 + a_3*0 = a_0
+1 = a_0 + a_1\cdot 0 + a_2\cdot 0 + a_3\cdot 0 = a_0
 \end{displaymath}
 
 Wir können das auch in einer Matrix darstellen;
@@ -153,8 +153,8 @@ Wir definieren einfach irgendwelche Punkte im Raum und bestimmen jeweils die Fun
 \subsection{Lineare Interpolation - Lineare Bézier Splines}
 Wir haben einfach eine Linie mit den Anfangs \(P_0\) und Endpunkten \(P_1\). Jetzt müssen wir diese wahnsinnig schwierig beschreiben. Hier ist immer \(t \leq t \leq 1\).
 \begin{enumerate}
-	\item \(P(t) = (1-t)P_0+t*P_1\)
-	\item \(P(t) = (P_1 - P_0)*t + P_0\)
+	\item \(P(t) = (1-t)P_0+t\cdot P_1\)
+	\item \(P(t) = (P_1 - P_0)\cdot t + P_0\)
 	\item \(P(t) = (P_1, P_0) \begin{pmatrix}
 	-1 & 1 \\1 & 0
 	\end{pmatrix}\begin{pmatrix}
@@ -172,50 +172,145 @@ Quadratische Bézier Splines sind eigentlich dasselbe wie die linearen Bézier S
 
 Man hat zwei lineare Bézier Splines, die so definiert sind:
 \begin{displaymath}
-P^1_0(t) = (1-t)P_0 + t*P_1
+P^1_0(t) = (1-t)P_0 + t\cdot P_1
 \end{displaymath}
 \begin{displaymath}
-P^1_1(t) = (1-t)P_1 + t*P_2
+P^1_1(t) = (1-t)P_1 + t\cdot P_2
 \end{displaymath}
 
 Jetzt setzt man diese einfach in die normale Bézier Repräsentation ein - also eine Funktion in die Funktion einfügen.
 \begin{displaymath}
-P(t) = (1-t)P^1_0(t) = t*P^1_1(t)
+P(t) = (1-t)P^1_0(t) = t\cdot P^1_1(t)
 \end{displaymath}
 Dann muss mans nur noch auflösen et voila:
 \begin{displaymath}
-P(t) = (1-t)^2P_0 + 2(1-t)t*P_1+t^2P_2
+P(t) = (1-t)^2P_0 + 2(1-t)t\cdot P_1+t^2P_2
 \end{displaymath}
 Das, meine Kinder, wäre der ganze Zauber. Tschüss \& bis zum nächsten Mal!
 
 \subsection{Kubische Bézier Splines}
 Hehe, jetzt dachtest Du schon du bist fertig. Aber es wird nicht schwieriger. Wir haben jetzt einfach 4 Kontrollpunkte (\(P_0, \dots P_3)\))statt 3, also haben wir alle Definitionen:
 \begin{displaymath}
-P^1_0(t) = (1-t)P_0 + t*P_1
+P^1_0(t) = (1-t)P_0 + t\cdot P_1
 \end{displaymath}
 \begin{displaymath}
-P^1_1(t) = (1-t)P_1 + t*P_2
+P^1_1(t) = (1-t)P_1 + t\cdot P_2
 \end{displaymath}
 \begin{displaymath}
-P^1_2(t) = (1-t)P_2 + t*P_3
+P^1_2(t) = (1-t)P_2 + t\cdot P_3
 \end{displaymath}
 Jetzt müssen wir alle 4 Gleichungen zusammenfügen:
 \begin{displaymath}
-P^2_1(t) = (1-t)P^1_0(t) = t*P^1_1(t)
+P^2_1(t) = (1-t)P^1_0(t) = t\cdot P^1_1(t)
 \end{displaymath}
 \begin{displaymath}
-P^2_2(t) = (1-t)P^1_1(t) = t*P^1_2(t)
+P^2_2(t) = (1-t)P^1_1(t) = t\cdot P^1_2(t)
 \end{displaymath}
 Und diese dann nochmals in tha mix schmeissen:
 \begin{displaymath}
-P(t) = (1-t)P^2_1(t) = t*P^2_2(t)
+P(t) = (1-t)P^2_1(t) = t\cdot P^2_2(t)
 \end{displaymath}
 Was dann wieder aufgelöst:
 \begin{displaymath}
-P(t) = (1-t)^3P_0+3(1-t)^2*t*P_1+3(1-t)^2P_2+t^3P_3
+P(t) = (1-t)^3P_0+3(1-t)^2\cdot t\cdot P_1+3(1-t)t^2P_2+t^3P_3
 \end{displaymath}
 ergibt. Dem aufmerksamen Leser wird nicht entgangen sein, dass diese Bézier Splines Eigenschaften vom Pascal'schen Dreieck haben.
 
 \subsection{Bernsteinpolynome}
-Nicht aufgeben! Kurz ein Schluck Wasser und weiter gehts.
+Nicht aufgeben! Kurz ein Schluck Wasser und weiter gehts. Es ist jetzt einfach das Ganze Bézier Splies Zeugs - einfach nochmals verallgemeinert. Wir vorhin angetönt - dem aufmerksamen Leser wird ja nicht entgangen sein, dass die Formel der Bézier Kurve irgendwie so ein Muster ähnlich dem Pascal'schen Dreieck hat.
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.2\linewidth]{fig/pascalsches_dreieck}
+	\caption{Pascal'sches Dreieck}
+	\label{fig:pascalsches_dreieck}
+\end{figure}
+Die Bausteine von Bézier Splines sind ja auch immer dieselben - also irgendwas mit \((1-t)\) und \(t\) selbst kommt auch irgendwie immer vor. Nehmen wir nochmals das Beispiel vom Kubischen Bézier Spline und zerlegen die End-Formel in die Summanden und nehmen noch kurz die Punkte nochmals raus:
 
+\begin{displaymath}
+1\cdot (1-t)^3
+\end{displaymath}
+\begin{displaymath}
+3\cdot (1-t)^2\cdot t
+\end{displaymath}
+\begin{displaymath}
+3\cdot (1-t)\cdot t^2
+\end{displaymath}
+\begin{displaymath}
+1\cdot t^3
+\end{displaymath}
+Die Faktoren zu Beginn des Terms stellen genau die Binomialkoeffizienten dar. Hier nochmals die Binomiailkoeffizienten-Berechnung:
+\begin{displaymath}
+\begin{pmatrix}
+n \\ i
+\end{pmatrix}
+= \frac{n!}{i!(n-i)!}
+\end{displaymath}
+Ersetzen wir die Faktoren doch gleich einmal:
+
+\begin{displaymath}
+\begin{pmatrix}
+3 \\ 0
+\end{pmatrix}\cdot (1-t)^3
+\end{displaymath}
+\begin{displaymath}
+\begin{pmatrix}
+3 \\ 1
+\end{pmatrix}\cdot (1-t)^2\cdot t
+\end{displaymath}
+\begin{displaymath}
+\begin{pmatrix}
+3 \\ 2
+\end{pmatrix}\cdot (1-t)\cdot t^2
+\end{displaymath}
+\begin{displaymath}
+\begin{pmatrix}
+3 \\ 3
+\end{pmatrix}\cdot t^3
+\end{displaymath}
+Das wärs auch schon gewesen. Denn jetzt können wir daraus die Formel für die einzelnen Teile sagen:
+\begin{displaymath}
+B^3_i(t)=\begin{pmatrix}3 \\ i\end{pmatrix}(1-t)^{3-i}t^i
+\end{displaymath}
+Und das sind dann schon die Bernsteinpolynome.
+Für \(i\) setzte man dann einfach eine Zahl zwischen 0 und 3 und man erhält dann den Term an der entsprechenden Position.\\ \newline
+Jetzt haben wir aber doch am Anfang die Punkte herausgenommen - wir wollen diese jetzt natürlich wieder hineinnehmen. Dazu müssen wir sie nur eben mit dem entsprechenden Term wieder multiplizieren. Die ganze Kubische Bézier Kurve lässt sich dann so schreiben:
+\begin{displaymath}
+P(t) = \displaystyle\sum_{i=0}^{3} B^3_i(t)\cdot P_i
+\end{displaymath}
+Jetzt gehen wir ja nur bis 3 - können wir auch bis n gehen? Klar - das sind dann gerade die Bézier Kurven n. Ordnung.
+\begin{displaymath}
+P(t) = \displaystyle\sum_{i=0}^{n} B^n_i(t)\cdot P_i
+\end{displaymath}
+Wobei dann die Bernsteinpolynome, also der Teil mit dem \(B\), so definiert sind:
+\begin{displaymath}
+B^n_i(t)=\begin{pmatrix}n \\ i\end{pmatrix}(1-t)^{n-i}t^i
+\end{displaymath}
+\subsubsection{Eigenschaften von Bézier Kurven}
+\begin{enumerate}
+	\item Die Bézier Kurve liegt immer innerhalb der konvexen Hülle des Linienzuges
+	\item Die Anzahl der Kontrollpunkte \(P_0, \dots P_n\) bestimmt den Grad \(n\) der Bézier Kurve.
+	\item Die Änderung eines Kontrollpunktes bewirkt eine Änderung der gesamten Kurve.
+	\item Indem man die stetigen Funktionswerte und Ableitungen voraussetzt, lassen sich Bézier Kurven höheren Grades durch Bézier Kurven niedrigeren Grades zusammensetzen.
+\end{enumerate}
+Wahnsinnige Mathematische Wortspiele - man kanns auch einfach sagen. Zum ersten Punkt lässt sich sagen, dass in einem konvexen Gebiet jeder Punkt von jedem direkt erreichbar ist, ohne das Gebiet verlassen zu müssen. Also man stelle sich eine Insel im Meer vor. Diese ist konvex, wenn man von jedem x-beliebigen Punkt \textit{trockenen Fusses} an jeden anderen x-beliebigen Punkt kommt. Und die konvexe Hülle beschreibt dann einfach das kleinste Gebiet, welches konvex ist und alle Kontrollpunkte enthält. Abbildung \ref{fig:konvexe_huelle} zeigt in Grau diese konvexe Hülle.
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.3\linewidth]{fig/konvexe_huelle}
+	\caption{Konvexe Hülle}
+	\label{fig:konvexe_huelle}
+\end{figure}
+\\ \newline
+Die Zusammensetzung von Bézier Kurven setzt ja voraus, dass diese stetig sind. Wir haben folgende Eigenschaften, dass es stetig ist:
+\begin{enumerate}
+	\item Die Segmente haben an den Endpunkten keine Sprünge / Lücken
+	\item Die Segmente haben an den Endpunkten dieselbe erste Ableitung - also nicht eine Kurve in Form von: \(\land\).
+	\item Die Segmente haben an den Endpunkten dieselbe zweite Ableitung. Also nicht z.B. eine gerade Linie und gleich anschliessend ein Halbkreis. Das wäre, wie man geradeaus Autofährt und dann direkt eine 180 Grad Kurve kommt und man in unendlich kurzer Zeit das Steuerrad nach rechts drehen sollte, damit man die Kurve 'perfekt' fährt. Also nicht so eine Kurve wie in Abbildung \ref{fig:c2_stetigkeit}.
+\end{enumerate}
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.2\linewidth]{fig/c2_stetigkeit}
+	\caption{Zweite Ableitung ist hier nicht gleich}
+	\label{fig:c2_stetigkeit}
+\end{figure}
+\subsection{B Splines \& NURBS}
+Laut meinen Notizen nicht Teil der MEP.

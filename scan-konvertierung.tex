@@ -19,7 +19,7 @@ Pro Spalte haben wir ja immer nur 1 Pixel gesetzt hier, d.h wir müssen jeweils 
 \subsection{Digital Differential Analyzer}
 Beim Digital Differential Analyzer (DDA) berechnen wir zuerst den genauen Y-Wert, ganz nach der Formel \(y(x)=mx+b\). Dann runden wir dies auf die nächste ganze Zahl und haben den Wert, welcher Pixel gezeichnet werden soll. Das machen wir für jede Spalte - ist also entsprechend aufwändig zu berechnen, da für jeden Pixel eine Multiplikation gemacht werden muss. Besser wäre es, ausgehend vom Startpixel zu rechnen -- denn in der Formel erhöht sich x ja immer um 1, das heisst es wird einfach immer \(+ m\) ausgegeben. Wir haben dann also:
 \begin{displaymath}
-y_{i+i}=y_i+m
+y_{i+1}=y_i+m
 \end{displaymath}
 Das Verfahren ist aber immer noch mühsam, weil hier mit Gleitkommazahlen gerechnet wird und diese dann erst noch gerundet werden! Für Performancefreaks in der Computergrafik ein Graus.
 

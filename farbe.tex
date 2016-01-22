@@ -291,9 +291,9 @@ k = \frac{W_{max}}{n*n+1}
 \end{description}
 Der neue Wert eines Pixels berechnet sich dann einfach so:
 \begin{displaymath}
-W_{neu} = \lfloor W_{alt} * k \rfloor
+    W_{neu} =  \frac{W_{alt}}{k}
 \end{displaymath}
-Wir erhalten dann folgende Zwischentabelle:
+Die erhaltenen Werte werden abgerundet. Wir erhalten dann folgende Zwischentabelle:
 
 \begin{table}[!ht]
 	\centering

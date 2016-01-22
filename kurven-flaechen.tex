@@ -475,3 +475,55 @@ Das kann man noch vereinfachen, aber so viele Formeln in Latex ist mühsam. Wora
 \begin{displaymath}
 P = \begin{pmatrix}6 \\ 4\end{pmatrix}, Q = \begin{pmatrix}-4 \\ \frac{16}{9}\end{pmatrix}
 \end{displaymath}
+
+Jetzt kann man wieder das Schema aus Aufgabe 2 verwenden, um noch die komplette Lösung zu erhalten. Wir haben ja jetzt 4 bekannte Kontrollpunkte:
+
+\begin{displaymath}
+P_1 = \begin{pmatrix}0 \\ 0\end{pmatrix}, P_2 = \begin{pmatrix}6 \\ 4\end{pmatrix}, P_3 = \begin{pmatrix}-4 \\ \frac{16}{9}\end{pmatrix}, P_4 = \begin{pmatrix}2 \\ 4\end{pmatrix}
+\end{displaymath}
+
+Diese eingesetzt in die Matrizen:
+
+\begin{displaymath}
+P(t) = 
+\begin{pmatrix}
+0 & 6 & -4 & 2 \\
+0 & 4 & \frac{16}{9} & 4
+\end{pmatrix}
+\begin{pmatrix}
+-1 & 3 & -3 & 1 \\
+3 & -6 & 3 & 0 \\
+-3 & 3 & 0 & 0 \\
+1 & 0 & 0 & 0
+\end{pmatrix}
+\begin{pmatrix}
+t^3\\
+t^2\\
+t\\
+1
+\end{pmatrix}
+\end{displaymath}
+Erste beiden Matrizen zusammenrechnen:
+\begin{displaymath}
+P(t) = 
+\begin{pmatrix}
+32 & -48 & 18 & 0 \\
+\frac{32}{3} & -\frac{56}{3} & 12 & 0
+\end{pmatrix}
+\begin{pmatrix}
+t^3\\
+t^2\\
+t\\
+1
+\end{pmatrix}
+\end{displaymath}
+
+Und zum Schluss noch die beiden anderen auch:
+
+\begin{displaymath}
+P(t) = 
+\begin{pmatrix}
+32t^3-48t^2+18t\\
+\frac{32}{3}t^3 -\frac{56}{3}t^2 + 12t
+\end{pmatrix}
+\end{displaymath}

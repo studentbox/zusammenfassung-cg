@@ -46,18 +46,19 @@ Phong wird für glänzende Reflektionen verwendet.
 	\caption{Phong Beleuchtungsmodell}
 	\label{fig:phong}
 \end{figure}
-Siehe Abbildung \ref{fig:phong} - wir haben eine Fläche eines Objekts. Diese hat einen Normalenvektor - hier \(N\). Das Licht kommt aus der Richtung von \(L\), hat also einen Winkel zum Normalenvektor - hier \(\theta\). Jetzt ist es wie beim Billard - Eintrittswinkel = Austrittswinkel. Wenn wir also nun genau im Reflektionswinkel auf das die Fläche schauen würden, dann hätten wir die volle Reflektion des Objekts. Je weiter wir aber weg sind von diesem \textit{Austrittswinkel} - hier \(R\), desto schwächer wird auch die Reflektion. 
+Siehe Abbildung \ref{fig:phong} - wir haben eine Fläche eines Objekts. Diese hat einen Normalenvektor - hier \(N\). Das Licht kommt aus der Richtung von \(L\), hat also einen Winkel zum Normalenvektor - hier \(\theta\). Jetzt ist es wie beim Billard - Eintrittswinkel = Austrittswinkel. Wenn wir also nun genau im Reflektionswinkel auf das die Fläche schauen würden, dann hätten wir die volle Reflektion des Objekts. Je weiter wir aber weg sind von diesem \textit{Austrittsvektor} - in der Grafik ist diese Distanz als Winkel \(\phi\) angegeben, desto schwächer wird auch die Reflektion. 
 
 Deswegen können wir folgende Formel aufstellen - die jetzt hoffentlich etwas verständlich ist:
 \begin{displaymath}
-I_s = I_L\cdot k_s\cdot cos^{n_s}\theta
+I_s = I_L\cdot k_s\cdot cos^{n_s}\phi
 \end{displaymath}
 
 \begin{description}
-	\item[\(I_s\)] Intensität des reflektierten Strahls
-	\item[\(I_L\)] Intensität des einfallenden Lichts
+	\item[\(I_s\)] Intensität des reflektierten Strahls - Vektor V
+	\item[\(I_L\)] Intensität des einfallenden Lichts - Vektor L
 	\item[\(k_s\)] Beleuchtungskoeffizient (abhängig davon, wie stark das Objekt welche Farbe reflektiert)
-	\item[\(n_s\)] Wie nahe ist die Oberfläche an einer 'ideal reflektierenden'
+	\item[\(n_s\)] Wie nahe ist die Oberfläche an einer 'ideal reflektierenden' - üblicherweise zwischen 2 und 100
+	\item[\(\phi\)] Winkel zwischen idealer Reflektionsrichtung und Betrachtungsrichtung
 \end{description}
 
 \begin{figure}[!ht]

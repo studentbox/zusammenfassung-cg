@@ -386,6 +386,54 @@ Man muss einfach folgende Gleichung aufstellen:
 \begin{displaymath}
 P\left( t\right) = \left( 1-t\right)^3 \cdot \begin{pmatrix}0 \\ 0\end{pmatrix} + 3\left( 1-t\right)^2\cdot t \begin{pmatrix}2 \\ -4\end{pmatrix} + 3\left( 1-t\right)t^2\begin{pmatrix}5 \\ 6\end{pmatrix} + t^3\begin{pmatrix}9 \\ 0\end{pmatrix}
 \end{displaymath}
+
+Diese Gleichung kann man noch in der Matrixform darstellen. Wieso das nützlich ist sieht man gleich. Wichtig hier ist die Matrix auf der rechten Seite, diese ist durch die kubische Bézier-Funkion bereits vorgegeben. In die linke Matrix füllt man einfach die bekannten Punkte ein.
+
+\begin{displaymath}
+P(t) = 
+\begin{pmatrix}
+0 & 2 & 5 & 9 \\
+0 & -4 & 6 & 0
+\end{pmatrix}
+\begin{pmatrix}
+-1 & 3 & -3 & 1 \\
+3 & -6 & 3 & 0 \\
+-3 & 3 & 0 & 0 \\
+1 & 0 & 0 & 0
+\end{pmatrix}
+\begin{pmatrix}
+t^3\\
+t^2\\
+t\\
+1
+\end{pmatrix}
+\end{displaymath}
+
+Jetzt kann man die ersten zwei Matrizen miteinander multiplizieren (Taschenrechner hilft hier) und man erhält:
+\begin{displaymath}
+P(t) = 
+\begin{pmatrix}
+0 & 3 & 6 & 0 \\
+-30 & 42 & -12 & 0
+\end{pmatrix}
+\begin{pmatrix}
+t^3\\
+t^2\\
+t\\
+1
+\end{pmatrix}
+\end{displaymath}
+
+Dann muss man noch diese zusammenrechnen - et voila:
+
+\begin{displaymath}
+P(t) = 
+\begin{pmatrix}
+3t^2+6t\\
+-30t^3+42t^2-12t
+\end{pmatrix}
+\end{displaymath}
+
 Wenn man es noch grafisch darstellen möchte, einfach per Taschenrechner ein paar Werte für \(t\), am besten zwischen 0 und 1, ausrechnen und darstellen. Dann sollte es etwa so aussehen:
 \begin{figure}[!ht]
 	\centering

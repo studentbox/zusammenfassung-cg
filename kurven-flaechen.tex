@@ -316,3 +316,74 @@ Die Zusammensetzung von Bézier Kurven setzt ja voraus, dass diese stetig sind. 
 Am besten stellt man 2 Gleichungen auf, eine, die von der \(t\)-Variable abhängig ist und die X-Position ergibt, und die andere welche die Y-Position ergibt. Dann kann man in jedem Taschenrechner für Werte von t von 0 bis 1 diese Gleichungen einfach numerisch lösen und die entsprechenden Punkte einzeichnen und verbinden. Zur Kontrolle empfiehlt sich der Besuch auf folgender Website: \url{https://www.desmos.com/calculator/cahqdxeshd}
 \subsection{B Splines \& NURBS}
 Laut meinen Notizen nicht Teil der MEP.
+\section{Lösungen Übungen}
+\subsection{Aufgabe 1}
+Der Graph auf der linken Seite beschreibt eine unmöglich durch eine Funktion darstellbaren Graphen dar. Deswegen habe ich jetzt einfach die Achsen umgekehrt, damit eine geforderte Funktion überhaupt erstellbar ist. 
+\begin{displaymath}
+\begin{pmatrix}
+1 & 0 & 0 & 0 \\
+1 & 2 & 4 & 8 \\
+1 & 3 & 9 & 27 \\
+1 & 4 & 16 & 64
+\end{pmatrix}
+\begin{pmatrix}
+c_0 \\
+c_1 \\
+c_2 \\
+c_3 
+\end{pmatrix}
+= 
+\begin{pmatrix}
+0 \\
+2 \\
+0 \\
+2 
+\end{pmatrix}
+\end{displaymath}
+Mit dem CAS ergibt sich folgende Lösung:
+\begin{displaymath}
+c_0= 0 , c_1 = \frac{15}{2}, c_2 = -\frac{19}{4}, c_3 = \frac{3}{4}
+\end{displaymath}
+
+\subsection{Aufgabe 2}
+Man muss einfach folgende Gleichung aufstellen:
+\begin{displaymath}
+P\left( t\right) = \left( 1-t\right)^3 \cdot \begin{pmatrix}0 \\ 0\end{pmatrix} + 3\left( 1-t\right)^2\cdot t \begin{pmatrix}2 \\ -4\end{pmatrix} + 3\left( 1-t\right)t^2\begin{pmatrix}5 \\ 6\end{pmatrix} + t^3\begin{pmatrix}9 \\ 0\end{pmatrix}
+\end{displaymath}
+Wenn man es noch grafisch darstellen möchte, einfach per Taschenrechner ein paar Werte für \(t\), am besten zwischen 0 und 1, ausrechnen und darstellen. Dann sollte es etwa so aussehen:
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.5\linewidth]{fig/bezier_aufgabe2}
+	\caption{Grafische Lösung Bezier Aufgabe 2}
+	\label{fig:bezier_aufgabe2}
+\end{figure}
+
+\subsection{Aufgabe 3}
+Hier hat man ja durch die normale Bézier Gleichung folgende Gleichung vorgegeben, wobei die mittleren Kontrollpunkte ja unbekannt sind.
+\begin{displaymath}
+P(t) =  \begin{pmatrix}0 \\ 0\end{pmatrix} (1-t)^3 + 3 \begin{pmatrix}P_x \\ P_y\end{pmatrix}t(1-t)^2+3 \begin{pmatrix}Q_x \\ Q_y\end{pmatrix}t^2(1-t)+ \begin{pmatrix}2 \\ 4\end{pmatrix}t^3
+\end{displaymath}
+Zusätzlich kann man dann folgende Gleichungen aufstellen, indem man ja diese Constraints setzt:
+\begin{displaymath}
+P\left(\frac{1}{4}\right) =  \begin{pmatrix}2 \\ 2\end{pmatrix}
+\end{displaymath}
+\begin{displaymath}
+P\left(\frac{3}{4}\right) =  \begin{pmatrix}0 \\ 3\end{pmatrix}
+\end{displaymath}
+Daraus ergeben sich folgende Gleichungen:
+\begin{displaymath}
+P_x\left(\frac{1}{4}\right) = 2 = 3 P_x \frac{1}{4}\left(1-\frac{1}{4}\right)^2+3Q_x\frac{1}{4}^2\left(1-\frac{1}{4}\right)+2\frac{1}{4}^3
+\end{displaymath}
+\begin{displaymath}
+P_y\left(\frac{1}{4}\right) = 2 = 3 P_y \frac{1}{4}\left(1-\frac{1}{4}\right)^2+3Q_y\frac{1}{4}^2\left(1-\frac{1}{4}\right)+4\frac{1}{4}^3
+\end{displaymath}
+\begin{displaymath}
+P_x\left(\frac{3}{4}\right) = 0 = 3 P_x \frac{3}{4}\left(1-\frac{3}{4}\right)^2+3Q_x\frac{3}{4}^2\left(1-\frac{3}{4}\right)+2\frac{3}{4}^3
+\end{displaymath}
+\begin{displaymath}
+P_y\left(\frac{3}{4}\right) = 3 = 3 P_y \frac{3}{4}\left(1-\frac{3}{4}\right)^2+3Q_y\frac{3}{4}^2\left(1-\frac{3}{4}\right)+4\frac{3}{4}^3
+\end{displaymath}
+Das kann man noch vereinfachen, aber so viele Formeln in Latex ist mühsam. Woraus sich mit einem schlauen CAS folgende Lösung ergibt:
+\begin{displaymath}
+P = \begin{pmatrix}6 \\ 4\end{pmatrix}, Q = \begin{pmatrix}-4 \\ \frac{16}{9}\end{pmatrix}
+\end{displaymath}

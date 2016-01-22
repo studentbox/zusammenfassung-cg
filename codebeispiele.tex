@@ -1,0 +1,110 @@
+\chapter{Codebeispiele}
+
+\section{Vertexshader}
+\subsection{2D}
+
+\subsection{3D}
+\begin{lstlisting}
+attribute vec3 aVertexPosition;
+attribute vec3 aVertexNormal;
+attribute vec4 aVertexColor;
+
+uniform mat4 uPerspectiveMatrix;
+uniform mat4 uCameraMatrix;
+
+uniform mat4 uTransformationMatrix;
+uniform mat3 uNormalMatrix;
+
+varying vec4 vColor;
+varying vec3 vLighting;
+
+void main () {
+    vColor = aVertexColor;
+    vec4 position = vec4 ( aVertexPosition, 1.0);
+
+    vec3 ambientLight = vec3(0.5, 0.5, 0.5);
+    vec3 directionalLightColor = vec3(1, 1, 1);
+    vec3 directionalVector = vec3(0, 1, 0);
+    vec3 transformedNormal = normalize(uNormalMatrix * aVertexNormal);
+    
+    float directional = max(dot(transformedNormal, directionalVector),0.0);
+    vLighting = ambientLight + (directionalLightColor * directional);
+
+    gl_Position = uPerspectiveMatrix*uCameraMatrix*uTransformationMatrix*position;
+}
+\end{lstlisting}
+
+\section{Fragmentshader}
+\subsection{2D}
+
+\subsection{3D}
+\begin{lstlisting}
+precision mediump float;
+
+varying vec4 vColor;
+varying vec3 vLighting;
+
+void main () {
+        gl_FragColor = vec4(vColor.rgb * vLighting, vColor.a);
+}
+\end{lstlisting}
+
+
+\section{Setup-Methode)
+\begin{lstlisting}
+function setupAttributes(shaderProgram) {
+    // finds the index of the variable in the program
+    aVertexPositionId = gl.getAttribLocation(shaderProgram, "aVertexPosition");
+    gl.enableVertexAttribArray(aVertexPositionId);
+
+    aVertexNormalId = gl.getAttribLocation(shaderProgram, "aVertexNormal");
+    gl.enableVertexAttribArray(aVertexNormalId);
+
+    aVertexColorId = gl.getAttribLocation(shaderProgram, "aVertexColor");
+    gl.enableVertexAttribArray(aVertexColorId);
+
+    uTransformationMatrixId = gl.getUniformLocation(shaderProgram, "uTransformationMatrix");
+    uPerspectiveMatrixId = gl.getUniformLocation(shaderProgram, "uPerspectiveMatrix");
+    uCameraMatrixId = gl.getUniformLocation(shaderProgram, "uCameraMatrix");
+    uNormalMatrixId = gl.getUniformLocation(shaderProgram, "uNormalMatrix");
+}
+\end{lstlisting}
+
+
+\section{Startup-Methode)
+\begin{lstlisting}
+function startup() {
+    canvas = document.getElementById("gameCanvas");
+    gl = createGLContext(canvas);
+
+    setupAttributes(loadAndCompileShaders(gl, "VertexShader.vert", "FragmentShader.frag"));
+
+    gl.frontFace(gl.CCW); // defines how the front face is drawn
+    gl.cullFace(gl.BACK); // defines which face should be culled
+    gl.enable(gl.CULL_FACE);
+    gl.enable(gl.DEPTH_TEST);
+
+
+    //Background Color
+    gl.clearColor(0.0, 0.0, 0.0, 1.0);
+
+    perspective = mat4.create();
+    mat4.frustum(perspective, -1.02, 1.02, -1.02, 1.02, 0.2, 100);
+    gl.uniformMatrix4fv(uPerspectiveMatrixId, false, perspective);
+
+    camera = mat4.create();
+    mat4.lookAt(camera, [0, 0, 1.2], [0, 0, 0], [0, 1, 0]);
+    gl.uniformMatrix4fv(uCameraMatrixId, false, camera);
+    
+	window.requestAnimationFrame(drawAnimated);
+}
+\end{lstlisting}
+
+
+\section{Draw-Methode)
+\begin{lstlisting}
+function draw() {
+    gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+    ...
+}
+\end{lstlisting}

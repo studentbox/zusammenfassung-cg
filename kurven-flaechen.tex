@@ -316,7 +316,11 @@ Am besten stellt man 2 Gleichungen auf, eine, die von der \(t\)-Variable abhäng
 \subsection{B Splines \& NURBS}
 Laut meinen Notizen nicht Teil der MEP.
 \section{Lösungen Übungen}
-\subsection{Aufgabe 1}
+\subsection{Aufgabe 1 - Interpolierende Kurve durch vier Punkte}
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=1.0\linewidth]{fig/ueb_curves_1}
+\end{figure}
 Der Graph auf der linken Seite beschreibt eine unmöglich durch eine Funktion darstellbaren Graphen dar. Deswegen habe ich jetzt einfach die Achsen umgekehrt, damit eine geforderte Funktion überhaupt erstellbar ist. 
 \begin{displaymath}
 \begin{pmatrix}
@@ -344,7 +348,11 @@ Mit dem CAS ergibt sich folgende Lösung:
 c_0= 0 , c_1 = \frac{15}{2}, c_2 = -\frac{19}{4}, c_3 = \frac{3}{4}
 \end{displaymath}
 
-\subsection{Aufgabe 2}
+\subsection{Aufgabe 2 - Bézier-Kurve durch vier Punkte}
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=1.0\linewidth]{fig/ueb_curves_2}
+\end{figure}
 Man muss einfach folgende Gleichung aufstellen:
 \begin{displaymath}
 P\left( t\right) = \left( 1-t\right)^3 \cdot \begin{pmatrix}0 \\ 0\end{pmatrix} + 3\left( 1-t\right)^2\cdot t \begin{pmatrix}2 \\ -4\end{pmatrix} + 3\left( 1-t\right)t^2\begin{pmatrix}5 \\ 6\end{pmatrix} + t^3\begin{pmatrix}9 \\ 0\end{pmatrix}
@@ -357,7 +365,11 @@ Wenn man es noch grafisch darstellen möchte, einfach per Taschenrechner ein paa
 	\label{fig:bezier_aufgabe2}
 \end{figure}
 
-\subsection{Aufgabe 3}
+\subsection{Aufgabe 3 - Nochmals: Bézier-Kurve durch vier Punkte}
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=1.0\linewidth]{fig/ueb_curves_3}
+\end{figure}
 Hier hat man ja durch die normale Bézier Gleichung folgende Gleichung vorgegeben, wobei die mittleren Kontrollpunkte ja unbekannt sind.
 \begin{displaymath}
 P(t) =  \begin{pmatrix}0 \\ 0\end{pmatrix} (1-t)^3 + 3 \begin{pmatrix}P_x \\ P_y\end{pmatrix}t(1-t)^2+3 \begin{pmatrix}Q_x \\ Q_y\end{pmatrix}t^2(1-t)+ \begin{pmatrix}2 \\ 4\end{pmatrix}t^3
